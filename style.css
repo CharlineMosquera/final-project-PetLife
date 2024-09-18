@@ -1,0 +1,209 @@
+body{
+    font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 25px;
+}
+
+.colors{
+    background-color: #EAB748;
+}
+
+.barra-login{
+display: flex;
+flex-direction: column;
+
+
+}
+
+.imagen{
+    display: flex;
+    height: 90px;
+    width: 80px;
+    border-radius: 10px;
+    mix-blend-mode: multiply;
+}
+
+
+.menu-responsive{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.iconos8{
+    
+    display: flex;
+    width: 100px;
+    gap: 20px;
+}
+
+
+.barra-menu{
+    
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+    
+   
+    
+}
+
+.nav-menu{
+   
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
+.form-control{
+    width: 1000px;
+    height: 50px;
+    border-radius: 20px;
+
+}
+.placeholder-responsive{
+    
+}
+
+.pplaceholder{
+    display: none;
+} 
+
+.nav-link{
+
+    color: white !important ;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+@media(max-width:480px){
+   .form-control{
+    width: 100px;
+    display: none;
+    justify-content: space-between;
+   }
+
+   .placeholder-responsive{
+    display: block;
+    width: 400%;
+    flex-direction: column;
+    
+   }
+   .barra-login{
+    direction: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    
+   }
+
+
+   
+}
+
+/*Estilo del contenedor ¿Ques es PetLite?*/
+.cont-what-is-PetLite {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 200px;
+    background-color: #4586EF; /*Cambiar color*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: 30px auto;
+    color: white; 
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Estilo del parrafo del contenedor ¿Ques es PetLite?*/
+.cont-what-is-PetLite p {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+/*Estilo del titulo del contenedor ¿Ques es PetLite?*/
+.cont-what-is-PetLite h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+}
+
+/*Estilo de las tarjetas de misión y visión*/
+.first-tarjet {
+    border-radius: 20px;
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 30px auto;
+    overflow: hidden; 
+    border: none;
+}
+
+/*Estilo de las imagenes de las tarjetas de misión y visión*/
+.first-tarjet img {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/*Espaciado entre las columnas de la fila*/
+.row{
+    gap:30px;
+}
+
+/*Responsive*/
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+}
+
+/*Estilo de las tarjetas con texto de misión y visión*/
+.text-tarjet{
+    background-color: transparent;
+    color:black;
+    border:none;
+}
+
+/*Estilo del parrafo de las tarjetas con texto de misión y visión*/
+.text-tarjet p{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*Estilo del titulo de las tarjetas con texto de misión y visión*/
+.text-tarjet h3{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+}
+
+/*Estilo del nombre de la app*/
+.name-app{
+    font-weight: bold; 
+    color: #EAB748;
+}
+
+/*Estilos Footer*/
