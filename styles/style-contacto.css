@@ -1,0 +1,95 @@
+/*aspecto para el formulario completo lo que aparece en rojo  */
+.contacto {
+    width: 80%;
+    max-width: 500px;
+    margin: 15px auto; /* Centra el formulario horizontalmente */
+    padding: 15px;
+    background-color: red;
+    border-radius: 50px;
+    margin-bottom: 100px;  
+}
+
+/* Para pantallas pequeñas, ajusta el tamaño y márgenes */
+@media (max-width: 480px) {
+    .contacto {
+        width: 90%; /* Aumenta el ancho para pantallas pequeñas */
+        margin: 10px auto; /* Asegura que se mantenga centrado */
+    }
+}
+/* titulo h1  */
+
+.tittle-contact{
+   
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+
+/* aspecto de los form  */
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+}
+
+/*  aspecto de los label de los input */
+.contacto label {
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #0c0c0c;
+}
+
+/* aspecto de los placeholder de text area de los input */
+
+.contacto input[type="text"],
+.contacto input[type="email"],
+.contacto input[type="tel"]
+ {
+    width: 100%;
+    padding: 2px;    
+    border: 1px solid #0e0d0d;
+    border-radius: 5px;
+    font-size: 12px;
+}
+/* aspecto al area del placeholder del textarea de escribir mensaje */
+.contacto textarea {
+    resize: vertical;
+    height: 50% ;
+    border-radius: 10px;
+    border: 2px;
+    font-size: 10px;
+    padding: 4px;
+    margin-bottom: 4px;
+}
+
+
+
+/* ajustar el boton y darle estilos */
+
+.contacto button {
+    padding: 5px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* color al boton cuando pase el mouse */
+.contacto button:hover {
+    background-color: #2c7a9e;
+}
+
+
+/* darle estilo al boton guion verde la anchura margen  */
+.button-enviar{
+ display: block;
+ align-items: center;
+ margin-top: 2px;
+margin-left: 100px;
+margin-right: 100px;
+    
+}
