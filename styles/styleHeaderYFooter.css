@@ -130,7 +130,7 @@ footer {
 }
 
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   background: #3586ff;
   min-height: 80px;
@@ -199,7 +199,7 @@ footer .wave {
 }
 
 footer .wave#wave1 {
-  z-index: 1000;
+  z-index: 100;
   opacity: 1;
   bottom: 0;
   animation: animateWave 4s linear infinite;
