@@ -130,7 +130,7 @@ footer {
 }
 
 footer {
-  position: absolute;
+  position: relative;
   width: 100%;
   background: #3586ff;
   min-height: 80px;
@@ -199,7 +199,7 @@ footer .wave {
 }
 
 footer .wave#wave1 {
-  z-index: 100;
+  z-index: 1000;
   opacity: 1;
   bottom: 0;
   animation: animateWave 4s linear infinite;
@@ -230,6 +230,13 @@ footer .wave#wave4 {
   footer {
     flex-direction: column;
     padding: 20px;
+  }
+/*  cree un media query de 480 para el iphone y el footer no tome tanta pantalla */
+  @media(max-width:480px){
+    footer{
+      flex-direction: column;
+      margin-top: 110px;
+    }
   }
 
   .social_icon,
