@@ -1,7 +1,7 @@
 /*aspecto para el formulario completo lo que aparece en rojo  */
 .contacto {
-    width: 80%;
-    max-width: 500px;
+    width: 90%;
+    max-width: 900px;
     margin: 15px auto; /* Centra el formulario horizontalmente */
     padding: 15px;
     background-color: #A09D98;
