@@ -4,23 +4,24 @@
     max-width: 500px;
     margin: 15px auto; /* Centra el formulario horizontalmente */
     padding: 15px;
-    background-color: red;
+    background-color: #A09D98;
     border-radius: 50px;
     margin-bottom: 100px;  
 }
 
 /* Para pantallas pequeñas, ajusta el tamaño y márgenes */
-@media (max-width: 480px) {
+@media (max-width: 430px) {
     .contacto {
-        width: 90%; /* Aumenta el ancho para pantallas pequeñas */
+        width: 80%; /* Aumenta el ancho para pantallas pequeñas */
         margin: 10px auto; /* Asegura que se mantenga centrado */
     }
 }
 /* titulo h1  */
 
 .tittle-contact{
-   
-    font-size: 20px;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    font-size: 24px;
     display: block;
     text-align: center;
 }
@@ -36,8 +37,9 @@
 /*  aspecto de los label de los input */
 .contacto label {
     margin-bottom: 3px;
-    font-weight: bold;
-    font-size: 13px;
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 16px;
     color: #0c0c0c;
 }
 
@@ -48,18 +50,32 @@
 .contacto input[type="tel"]
  {
     width: 100%;
-    padding: 2px;    
-    border: 1px solid #0e0d0d;
+    padding: 2px;
+    border: none;
+    font-family: 'Nunito';
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 16px;
 }
+
+.contacto input[type="text"]:focus,
+.contacto input[type="email"]:focus,
+.contacto input[type="tel"]:focus {
+    outline: none;
+}
+
+.contacto textarea {
+    outline: none;
+}
+
+
 /* aspecto al area del placeholder del textarea de escribir mensaje */
 .contacto textarea {
     resize: vertical;
+    border: none;
     height: 50% ;
     border-radius: 10px;
-    border: 2px;
-    font-size: 10px;
+    border: none;
+    font-size: 16px;
     padding: 4px;
     margin-bottom: 4px;
 }
@@ -70,7 +86,7 @@
 
 .contacto button {
     padding: 5px;
-    background-color: #28a745;
+    background-color: #eab748;
     color: white;
     border: none;
     border-radius: 30px;
@@ -89,7 +105,7 @@
  display: block;
  align-items: center;
  margin-top: 2px;
-margin-left: 100px;
-margin-right: 100px;
+ margin-left: 100px;
+ margin-right: 100px;
     
 }
