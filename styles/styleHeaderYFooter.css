@@ -146,7 +146,7 @@ footer .menu-footer
 
 /* Elimina estilo de lista */
 footer .social_icon li,
-footer .menu-footer li 
+footer .menu-footer li
 {
   list-style: none;
 }
@@ -162,7 +162,7 @@ footer .social_icon li a
 }
 
 /* Estilos para imágenes de iconos */
-footer .social_icon li a img 
+footer .social_icon li a img
 {
   width: 22px;
   height: auto;
