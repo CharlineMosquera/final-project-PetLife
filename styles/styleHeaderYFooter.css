@@ -118,57 +118,64 @@ body {
 
 /* ESTILOS PARA EL FOOTER */
 footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  min-height: 100vh;
-  background: rgb(255, 255, 255);
-  font-family: "Nunito", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-footer {
   position: relative;
   width: 100%;
   background: #3586ff;
-  min-height: 80px;
-  padding: 10px 30px;
+  min-height: 100px;
+  padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin-top: 30px;
 }
 
+/* Estilos para la lista de íconos y menú */
 footer .social_icon,
-footer .menu {
+footer .menu-footer
+{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
+  flex-wrap: wrap;
 }
 
+/* Elimina estilo de lista */
 footer .social_icon li,
-footer .menu li {
+footer .menu-footer li
+{
   list-style: none;
 }
 
-footer .social_icon li a {
-  font-size: 20px;
+/* Estilos para enlances de redes */
+footer .social_icon li a
+{
+  font-size: 12px;
   color: white;
   margin: 0 10px;
   display: inline-block;
   transition: 0.5s;
 }
 
+/* Estilos para imágenes de iconos */
+footer .social_icon li a img
+{
+  width: 22px;
+  height: auto;
+}
+
+/* Efecto hover para los enlaces de redes sociales */
 footer .social_icon li a:hover {
   transform: translateY(-10px);
 }
 
-footer .menu li a {
-  font-size: 16px;
+/* Estilo para los enlaces del menú */
+footer .menu-footer li a {
+  font-size: 18px;
   color: white;
   margin: 0 10px;
   display: inline-block;
@@ -176,18 +183,21 @@ footer .menu li a {
   opacity: 0.75;
 }
 
-footer .menu li a:hover {
+/* Efecto hover para los enlaces del menú */
+footer .menu-footer li a:hover {
   opacity: 1;
 }
 
+/* Estilos para el párrafo del footer */
 footer p {
   color: #fff;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
+/* Estilos para las ondas animadas */
 footer .wave {
   position: absolute;
   top: -100px;
@@ -198,6 +208,7 @@ footer .wave {
   background-size: 1000px 100px;
 }
 
+/* Onda frontal */
 footer .wave#wave1 {
   z-index: 1000;
   opacity: 1;
@@ -205,6 +216,7 @@ footer .wave#wave1 {
   animation: animateWave 4s linear infinite;
 }
 
+/* Onda secundaria */
 footer .wave#wave2 {
   z-index: 999;
   opacity: 0.5;
@@ -212,13 +224,15 @@ footer .wave#wave2 {
   animation: animateWave_02 4s linear infinite;
 }
 
+/* Onda terciaria */
 footer .wave#wave3 {
   z-index: 1000;
   opacity: 0.2;
-  bottom: 0;
+  bottom: 15px;
   animation: animateWave 3s linear infinite;
 }
 
+/* Onda trasera */
 footer .wave#wave4 {
   z-index: 999;
   opacity: 0.7;
@@ -226,40 +240,29 @@ footer .wave#wave4 {
   animation: animateWave_02 3s linear infinite;
 }
 
+/* Media queries para pantallas más pequeñas */
 @media (max-width: 600px) {
   footer {
     flex-direction: column;
     padding: 20px;
   }
-/*  cree un media query de 480 para el iphone y el footer no tome tanta pantalla */
+
+  footer .menu-footer,
+  footer .social_icon {
+    justify-content: center;
+    width: 100%;
+  }
+
+ /* Media queries para pantallas inlcuso más pequeñas (iPhone)*/
   @media(max-width:480px){
     footer{
       flex-direction: column;
       margin-top: 110px;
     }
   }
-
-  .social_icon,
-  .menu {
-    flex-direction: column;
-    margin: 5px 0;
-  }
-
-  .social_icon li a,
-  .menu li a {
-    font-size: 18px;
-    margin: 5px 0;
-  }
-
-  footer p {
-    font-size: 14px;
-  }
-
-  footer .wave {
-    background-size: cover;
-  }
 }
 
+/* Animación para las ondas */
 @keyframes animateWave {
   0% {
     background-position-x: 1000px;
@@ -269,6 +272,7 @@ footer .wave#wave4 {
   }
 }
 
+/* Animación inversa para otras ondas */
 @keyframes animateWave_02 {
   0% {
     background-position-x: 0px;
