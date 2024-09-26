@@ -9,6 +9,8 @@ body {
   font-weight: weight;
   font-style: normal;
   font-size: 25px;
+  position: relative;
+  min-height: 100vh;
 }
 
 .colors {
@@ -118,7 +120,7 @@ body {
 
 /* ESTILOS PARA EL FOOTER */
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   background: #3586ff;
   min-height: 100px;
@@ -129,7 +131,7 @@ footer {
   flex-direction: column;
   font-family: "Nunito", sans-serif;
   text-align: center;
-  margin-top: 30px;
+  bottom: 0;
 }
 
 /* Estilos para la lista de íconos y menú */
