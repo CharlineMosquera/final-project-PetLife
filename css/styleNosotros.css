@@ -100,10 +100,9 @@
   color: #eab748;
 }
 
-/* EFECTOS PARA LAS TARJETAS DESARROLLADORES */
+/* ESTILOS PARA LAS TARJETAS DESARROLLADORES */
 .container-cards {
   padding: 80px;
-  padding-bottom: 200px;
 }
 
 .card-container {
@@ -176,4 +175,46 @@ lo que genera el efecto de voltear*/
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   font-size: 32px;
+}
+
+@media (min-width: 340px) and (max-width: 575px) {
+  .container-cards {
+    margin-bottom: 45vh;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .container-cards {
+    margin-bottom: 35vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .container-cards {
+    margin-bottom: 30vh;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1023px) {
+  .container-cards {
+    margin-bottom: 25vh;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 1101px) {
+  .container-cards {
+    margin-bottom: 30vh;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) and (max-height: 1100px) {
+  .container-cards {
+    margin-bottom: 50vh;
+  }
+}
+
+@media (min-width: 1401px) {
+  .container-cards {
+    margin-bottom: 35vh;
+  }
 }
