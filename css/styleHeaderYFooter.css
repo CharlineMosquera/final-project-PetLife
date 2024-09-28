@@ -11,6 +11,7 @@ body {
   font-size: 25px;
   position: relative;
   min-height: 100vh;
+  border: 1px solid;
 }
 
 .colors {
@@ -136,8 +137,7 @@ footer {
 
 /* Estilos para la lista de íconos y menú */
 footer .social_icon,
-footer .menu-footer
-{
+footer .menu-footer {
   position: relative;
   display: flex;
   justify-content: center;
@@ -148,14 +148,12 @@ footer .menu-footer
 
 /* Elimina estilo de lista */
 footer .social_icon li,
-footer .menu-footer li
-{
+footer .menu-footer li {
   list-style: none;
 }
 
 /* Estilos para enlances de redes */
-footer .social_icon li a
-{
+footer .social_icon li a {
   font-size: 12px;
   color: white;
   margin: 0 10px;
@@ -164,8 +162,7 @@ footer .social_icon li a
 }
 
 /* Estilos para imágenes de iconos */
-footer .social_icon li a img
-{
+footer .social_icon li a img {
   width: 22px;
   height: auto;
 }
@@ -254,13 +251,13 @@ footer .wave#wave4 {
     justify-content: center;
     width: 100%;
   }
+}
 
- /* Media queries para pantallas inlcuso más pequeñas (iPhone)*/
-  @media(max-width:480px){
-    footer{
-      flex-direction: column;
-      margin-top: 110px;
-    }
+/* Media queries para pantallas inlcuso más pequeñas (iPhone)*/
+@media (max-width: 480px) {
+  footer {
+    flex-direction: column;
+    margin-top: 110px;
   }
 }
 
