@@ -204,7 +204,7 @@ footer .wave {
   width: 100%;
   height: 100px;
   background: url("../img/shared/wave.png");
-  background-size: 1000px 100px;
+  background-size: cover;
 }
 
 /* Onda frontal */

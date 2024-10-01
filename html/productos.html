@@ -40,7 +40,6 @@
               </a>
             </div>
           </div>
-
         </div>
 
         <!-- Barra de busqueda mobile -->
@@ -55,7 +54,7 @@
               <a class="nav-link active letras" aria-current="page" href="./index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
+              <a class="nav-link active" aria-current="page" href="./cajasubscripcion.html">Caja Subscripción</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Caja Suscripción</a>
@@ -71,8 +70,20 @@
     </nav>
   </header>
 
-  <main>
-  </main>
+  <aside class="allProducts">
+    <div class="row row-cols-1 row-cols-md-3 g-4 products-container" id="products-container">
+
+    </div>
+
+
+  </aside>
+
+  <section class="car">
+    <h2>Carrito de compra</h2>
+    <ul id="cart-list" class="car-list"></ul> <!-- Cambiado el ID aquí -->
+    <p id="cart-total" class="total">Total de compra: <span>0.00</span></p> <!-- Cambiado el ID aquí -->
+    <button id="clear-cart" class="clearCar">Limpiar carrito</button> <!-- Cambiado el ID aquí -->
+  </section>
 
   <!-- Footer: Contenedor para las ondas animadas -->
   <footer>
@@ -91,9 +102,8 @@
     </ul>
     <ul class="menu-footer"> <!-- Menú de navegación -->
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="comida.html">Comida</a></li>
-      <li><a href="suplementos.html">Suplementos</a></li>
-      <li><a href="higiene.html">Higiene</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="cajasubscripcion.html">Caja Subscripción</a></li>
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="contactanos.html">Contáctanos</a></li>
     </ul>
@@ -103,6 +113,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="../js/carrito.js"></script>
 </body>
 
 </html>
