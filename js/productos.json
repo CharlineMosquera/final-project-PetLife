@@ -46,60 +46,49 @@
     },
     {
         "id": 5,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
+        "name": "Dog's Natural Care - Jabón Origen Spa Herbal",
+        "img": "../img/productos/Jabon-NaturalCare.jpg",
+        "description": "Ideal para minimizar impurezas y usar en pieles expuestas a cambios de ambiente, para mascotas aventureras que se exponen a microorganismos y ectoparásitos. Sus aceites ayudan a dar vitalidad y brillo al pelaje.",
+        "price": 18.700,
         "category": "Higiene",
-        "subcategory": ""
+        "subcategory": "Jabón"
     },
     {
         "id": 6,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
+        "name": "Petys - Paños Húmedos Anti Bacterial Con Clorhexidina",
+        "img": "../img/productos/Panos.jpg",
+        "description": "Paños húmedos petys anti bacterial con clorhexidina - 40 unidades, Hipo alergénicos. dejan una agradable fragancia en la mascota, los deja listos para disfrutar de su día, limpiándolos para eliminar la suciedad y el mal olor que pueden adquirir entre baño y baño, ideal para ser manipulado por humanos.",
+        "price": 11.000,
         "category": "Higiene",
-        "subcategory": ""
+        "subcategory": "Paños húmedos"
     },
     {
         "id": 7,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
-        "category": "Higiene",
-        "subcategory": ""
+        "name": "Omega 3 para Perros",
+        "description": "Suplemento rico en ácidos grasos esenciales para mejorar la salud de la piel y el pelaje.",
+        "price": 19.990,
+        "category": "Suplementos",
+        "subcategory": "Piel y Pelaje"
     },
     {
         "id": 8,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
+        "name": "Multivitamínico Completo",
+        "description": "Un suplemento diario con vitaminas y minerales esenciales para mantener a tu perro activo y saludable.",
+        "price": 24.990,
         "category": "Suplementos",
-        "subcategory": ""
+        "subcategory": "Bienestar General"
     },
     {
         "id": 9,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
-        "category": "Suplementos",
-        "subcategory": ""
+        "name": "Glucosamina para Articulaciones",
+        "img": "../img/productos/glucosamina.jpg",
+        "description": "Suplemento que ayuda a mejorar la movilidad y a fortalecer las articulaciones de perros mayores o activos.",
+        "price": 29.990,
+        "category": "Salud",
+        "subcategory": "Articulaciones"
     },
     {
         "id": 10,
-        "name": "",
-        "img": "",
-        "description": "",
-        "price": 0,
-        "category": "Suplementos",
-        "subcategory": ""
-    },
-    {
-        "id": 11,
         "name": "Caja Junior Saludable",
         "img": "../img/productos/Caja-cachorro.png",
         "description": "Caja personalizada para cachorros en crecimiento, que incluye alimentos ricos en nutrientes para apoyar el desarrollo, suplementos vitamínicos para fortalecer el sistema inmunológico y productos de aseo para pieles delicadas.",
@@ -108,7 +97,7 @@
         "subcategory": "Cachorros"
     },
     {
-        "id": 12,
+        "id": 11,
         "name": "Caja Senior Vitalidad",
         "img": "../img/productos/Caja-senior.png",
         "description": "Esta caja está diseñada para perros mayores. Contiene alimentos altos en fibra, suplementos para las articulaciones, y productos de bienestar como cepillos suaves para pelajes maduros.",
@@ -117,7 +106,7 @@
         "subcategory": "Perros Mayores"
     },  
     {
-        "id": 13,
+        "id": 12,
         "name": "Caja Perrito Sensible",
         "img": "../img/productos/Caja-perro-sensible.png",
         "description": "Productos especializados para el cuidado del pelaje, incluyendo cepillos suaves, toallitas antibacteriales, y shampoo especializado para problemas de piel sensibles",
@@ -126,7 +115,7 @@
         "subcategory": "Cuidado Especial"
     },
     {
-        "id": 14,
+        "id": 13,
         "name": "Caja Energía Activa",
         "img": "../img/productos/Caja-energia.png",
         "description": "Esta caja es ideal para perros enérgicos. Contiene alimentos ricos en proteínas y grasas saludables, además de suplementos para mantener la energía y productos de aseo para un pelaje brillante.",
