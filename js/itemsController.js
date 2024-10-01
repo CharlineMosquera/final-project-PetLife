@@ -111,36 +111,36 @@ class ProductsController {
             {
                 "id": this.currentId++,
                 "name": "Caja Junior Saludable",
-                "img": "",
+                "img": "../img/productos/Caja-cachorro.png",
                 "description": "Caja personalizada para cachorros en crecimiento, que incluye alimentos ricos en nutrientes para apoyar el desarrollo, suplementos vitamínicos para fortalecer el sistema inmunológico y productos de aseo para pieles delicadas.",
-                "price": 170.000,
+                "price": 170000,
                 "category": "Caja de subscripción",
                 "subcategory": "Cachorros"
             },
             {
                 "id": this.currentId++,
                 "name": "Caja Senior Vitalidad",
-                "img": "",
+                "img": "../img/productos/Caja-senior.png",
                 "description": "Esta caja está diseñada para perros mayores. Contiene alimentos altos en fibra, suplementos para las articulaciones, y productos de bienestar como cepillos suaves para pelajes maduros.",
-                "price": 200.000,
+                "price": 200000,
                 "category": "Caja de subscripción",
                 "subcategory": "Perros Mayores"
             },  
             {
                 "id": this.currentId++,
                 "name": "Caja Perrito Sensible",
-                "img": "",
+                "img": "../img/productos/Caja-perro-sensible.png",
                 "description": "Productos especializados para el cuidado del pelaje, incluyendo cepillos suaves, toallitas antibacteriales, y shampoo especializado para problemas de piel sensibles",
-                "price": 130.000,
+                "price": 130000,
                 "category": "Caja de subscripción",
                 "subcategory": "Cuidado Especial"
             }, 
             {
                 "id": this.currentId++,
                 "name": "Caja Energía Activa",
-                "img": "",
+                "img": "../img/productos/Caja-energia.png",
                 "description": "Esta caja es ideal para perros enérgicos. Contiene alimentos ricos en proteínas y grasas saludables, además de suplementos para mantener la energía y productos de aseo para un pelaje brillante.",
-                "price": 190.000,
+                "price": 190000,
                 "category": "Caja de subscripción",
                 "subcategory": "Energía"
             }
