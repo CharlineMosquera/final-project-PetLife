@@ -26,15 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayProducts(products) {
         products.forEach(product => {
             const productDiv = document.createElement('div');
+            productDiv.classList.add('col-md-4', 'mb-4');
             productDiv.classList.add('product');
             productDiv.innerHTML = `
-                <img src="${product.img}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <p>Precio: $${product.price.toFixed(2)}</p>
-                <p> categoria: ${product.category}</p>
-                <p> subcategoria: ${product.subcategory}</p>
-                <button class="add-to-cart" data-id="${product.name}">Agregar al carrito</button>`;
+                <div class="card h-100">
+                <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                <div class="card-body text-center">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+                <p class="price">$${product.price}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
             productsContainer.appendChild(productDiv);
 
             productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
