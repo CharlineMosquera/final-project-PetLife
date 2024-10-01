@@ -65,6 +65,7 @@
     {
         "id": 7,
         "name": "Omega 3 para Perros",
+        "img": "../img/productos/omega3.png",
         "description": "Suplemento rico en ácidos grasos esenciales para mejorar la salud de la piel y el pelaje.",
         "price": 19.990,
         "category": "Suplementos",
@@ -73,6 +74,7 @@
     {
         "id": 8,
         "name": "Multivitamínico Completo",
+        "img": "../img/productos/multivitaminico.webp",
         "description": "Un suplemento diario con vitaminas y minerales esenciales para mantener a tu perro activo y saludable.",
         "price": 24.990,
         "category": "Suplementos",
@@ -81,7 +83,7 @@
     {
         "id": 9,
         "name": "Glucosamina para Articulaciones",
-        "img": "../img/productos/glucosamina.jpg",
+        "img": "../img/productos/glucosamina.png",
         "description": "Suplemento que ayuda a mejorar la movilidad y a fortalecer las articulaciones de perros mayores o activos.",
         "price": 29.990,
         "category": "Salud",
