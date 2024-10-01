@@ -56,64 +56,55 @@ class ProductsController {
             },
             {
                 "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
+                "name": "Dog's Natural Care - Jabón Origen Spa Herbal",
+                "img": "../img/productos/Jabon-NaturalCare.jpg",
+                "description": "Ideal para minimizar impurezas y usar en pieles expuestas a cambios de ambiente, para mascotas aventureras que se exponen a microorganismos y ectoparásitos. Sus aceites ayudan a dar vitalidad y brillo al pelaje.",
+                "price": 18.700,
                 "category": "Higiene",
-                "subcategory": ""
+                "subcategory": "Jabón"
             },
             {
                 "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
+                "name": "Petys - Paños Húmedos Anti Bacterial Con Clorhexidina",
+                "img": "../img/productos/Panos.jpg",
+                "description": "Paños húmedos petys anti bacterial con clorhexidina - 40 unidades, Hipo alergénicos. dejan una agradable fragancia en la mascota, los deja listos para disfrutar de su día, limpiándolos para eliminar la suciedad y el mal olor que pueden adquirir entre baño y baño, ideal para ser manipulado por humanos.",
+                "price": 11.000,
                 "category": "Higiene",
-                "subcategory": ""
+                "subcategory": "Paños húmedos"
             },
             {
                 "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
-                "category": "Higiene",
-                "subcategory": ""
-            },
-            {
-                "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
+                "name": "Omega 3 para Perros",
+                "img": "../img/productos/omega3.jpg",
+                "description": "Suplemento rico en ácidos grasos esenciales para mejorar la salud de la piel y el pelaje.",
+                "price": 19.990,
                 "category": "Suplementos",
-                "subcategory": ""
+                "subcategory": "Piel y Pelaje"
             },
             {
                 "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
+                "name": "Multivitamínico Completo",
+                "img": "../img/productos/multivitaminico.jpg",
+                "description": "Un suplemento diario con vitaminas y minerales esenciales para mantener a tu perro activo y saludable.",
+                "price": 24.990,
                 "category": "Suplementos",
-                "subcategory": ""
+                "subcategory": "Bienestar General"
             },
             {
                 "id": this.currentId++,
-                "name": "",
-                "img": "",
-                "description": "",
-                "price": 0,
-                "category": "Suplementos",
-                "subcategory": ""
+                "name": "Glucosamina para Articulaciones",
+                "img": "../img/productos/glucosamina.jpg",
+                "description": "Suplemento que ayuda a mejorar la movilidad y a fortalecer las articulaciones de perros mayores o activos.",
+                "price": 29.990,
+                "category": "Salud",
+                "subcategory": "Articulaciones",
             },
             {
                 "id": this.currentId++,
                 "name": "Caja Junior Saludable",
                 "img": "../img/productos/Caja-cachorro.png",
                 "description": "Caja personalizada para cachorros en crecimiento, que incluye alimentos ricos en nutrientes para apoyar el desarrollo, suplementos vitamínicos para fortalecer el sistema inmunológico y productos de aseo para pieles delicadas.",
-                "price": 170000,
+                "price": 170.000,
                 "category": "Caja de subscripción",
                 "subcategory": "Cachorros"
             },
@@ -122,7 +113,7 @@ class ProductsController {
                 "name": "Caja Senior Vitalidad",
                 "img": "../img/productos/Caja-senior.png",
                 "description": "Esta caja está diseñada para perros mayores. Contiene alimentos altos en fibra, suplementos para las articulaciones, y productos de bienestar como cepillos suaves para pelajes maduros.",
-                "price": 200000,
+                "price": 200.000,
                 "category": "Caja de subscripción",
                 "subcategory": "Perros Mayores"
             },  
@@ -131,7 +122,7 @@ class ProductsController {
                 "name": "Caja Perrito Sensible",
                 "img": "../img/productos/Caja-perro-sensible.png",
                 "description": "Productos especializados para el cuidado del pelaje, incluyendo cepillos suaves, toallitas antibacteriales, y shampoo especializado para problemas de piel sensibles",
-                "price": 130000,
+                "price": 130.000,
                 "category": "Caja de subscripción",
                 "subcategory": "Cuidado Especial"
             }, 
@@ -140,7 +131,7 @@ class ProductsController {
                 "name": "Caja Energía Activa",
                 "img": "../img/productos/Caja-energia.png",
                 "description": "Esta caja es ideal para perros enérgicos. Contiene alimentos ricos en proteínas y grasas saludables, además de suplementos para mantener la energía y productos de aseo para un pelaje brillante.",
-                "price": 190000,
+                "price": 190.000,
                 "category": "Caja de subscripción",
                 "subcategory": "Energía"
             }
