@@ -119,7 +119,7 @@
     {
         "id": 13,
         "name": "Caja Perrito Sensible",
-        "img": "../img/productos/Caja-perro-sencible.png",
+        "img": "../img/productos/Caja-perro-sensible.png",
         "description": "Productos especializados para el cuidado del pelaje, incluyendo cepillos suaves, toallitas antibacteriales, y shampoo especializado para problemas de piel sensibles",
         "price": 130000,
         "category": "Caja de subscripción",
