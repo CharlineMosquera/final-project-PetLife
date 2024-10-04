@@ -1,30 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-add-product');
-    const productsContainer = document.getElementById('products-container');
-
-    function loadProductsFromLocalStorage() {
-        const products = JSON.parse(localStorage.getItem('products')) || []; 
-        displayProducts(products); 
-    }
-
-    function displayProducts(products) {
-        productsContainer.innerHTML = "";
-        products.forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('col-md-4', 'mb-4', 'product');
-            productDiv.innerHTML = `
-                <div class="card h-100">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">$${product.price}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
-            productsContainer.appendChild(productDiv);
-        });
-    }
-
-    loadProductsFromLocalStorage();
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -65,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let products = JSON.parse(localStorage.getItem('products')) || [];
         products.push(product);
         localStorage.setItem('products', JSON.stringify(products));
+        window.location.href = '../html/productos.html';
         alert("Producto agregado exitosamente");
-        loadProductsFromLocalStorage();
     }
 });

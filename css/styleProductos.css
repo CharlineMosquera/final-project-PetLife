@@ -6,7 +6,6 @@
 h2 {
     font-weight: bold;
 }
-
 /* Estilos para las tarjetas de productos */
 .card {
     border: #ddd;
@@ -69,7 +68,7 @@ h2 {
 
 .addProducts{
     display: flex;
-    justify-content: center; /* Centrará el botón horizontalmente */
+    justify-content: center;
     margin-top: 20px;
 }
 
