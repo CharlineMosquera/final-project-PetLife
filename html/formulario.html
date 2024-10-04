@@ -77,42 +77,45 @@
   
       </div>
   
+    </aside>
+  
     
+      <div class="AgregarProducto">
+    <form  id="form-add-product" action="submit-url" method="POST" enctype="multipart/form-data">
 
-    <form action="submit-url" method="POST" enctype="multipart/form-data">
-        <label for="imagen">
-            Imagen 
-            <input type="file" name="imagen" id="imagen" accept="image/*" required>
+      <label for="product-image">
+        Imagen 
+        <input type="file" name="product-image" id="product-image" accept="image/*" required>
+      </label>
+
+        <label for="product-name">
+            Nombre del producto 
+            <input type="text" name="product-name" id="product-name" required>
         </label>
 
-        <label for="comida">
-            Comida 
-            <input type="text" name="comida" id="comida" required>
-        </label>
-
-        <label for="descripcion">
+        <label for="product-description">
             Descripción
-            <input type="text" name="descripcion" id="descripcion" required>
+            <input type="text" name="product-description" id="product-description" required>
         </label>
+        <label for="product-price">
+          Precio
+          <input type="text" name="product-price" id="product-price" required>
+      </label>
 
-        <label for="precio">
-            Precio
-            <input type="text" name="precio" id="precio" required>
-        </label>
+      <label for="product-category">
+          Categoría 
+          <input type="text" name="product-category" id="product-category" required>
+      </label>
 
-        <label for="categoria">
-            Categoría 
-            <input type="text" name="categoria" id="categoria" required>
-        </label>
+      <label for="product-subCategory">
+        Subcategoría
+        <input type="text" name="product-subCategory" id="product-subCategory" required>
+    </label>
 
-        <label for="subcategoria">
-            Subcategoría
-            <input type="text" name="subcategoria" id="subcategoria" required>
-        </label>
 
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Agregar producto">
     </form>
-
+      </div>
   <!-- Footer: Contenedor para las ondas animadas -->
   <footer>
     <div class="waves">
@@ -141,6 +144,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <script src="../js/scriptProductos.js"></script>
+  <script src="../js/scriptFormProductos.js"></script>
 </body>
 </html>

@@ -79,5 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartUI();
     });
 
+    document.getElementById('add-products-button').addEventListener('click', function() {
+        window.location.href = '../html/formulario.html'; // Cambia "nueva-pagina.html" por la URL a la que quieras redirigir
+      });
 
 });
+

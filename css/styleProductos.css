@@ -66,3 +66,24 @@ h2 {
     margin-top: 8%;
     margin-bottom: 20%;
 }
+
+.addProducts{
+    display: flex;
+    justify-content: center; /* Centrará el botón horizontalmente */
+    margin-top: 20px;
+}
+
+#add-products-button {
+    background-color: #3586ff; /* Azul Bootstrap */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px; /* Añade bordes redondeados */
+    transition: background-color 0.3s;
+}
+
+#add-products-button:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el mouse */
+    cursor: pointer;
+}
