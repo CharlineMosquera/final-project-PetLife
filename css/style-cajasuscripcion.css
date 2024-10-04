@@ -4,33 +4,33 @@
 /* ESTILOS CONTENEDOR CAJA DE SUBSCRIPCION */
 /*Estilo del contenedor ¿Cómo funciona PetLite?*/
 .cont-how-PetLite-work {
-    width: 100%;
-    max-width: 1200px;
-    min-height: 200px;
-    background-color: #4586ef; /*Cambiar color*/
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    margin: 30px auto;
-    color: white;
-    border-radius: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 60%;
-  }
-  
-  /*Estilo del parrafo del contenedor ¿Ques es PetLite?*/
-  .cont-how-PetLite-work p {
-    font-family: "Nunito", sans-serif;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  /*Estilo del titulo del contenedor ¿Ques es PetLite?*/
-  .cont-how-PetLite-work h2 {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 700;
-    font-size: 32px;
-    text-align: center;
-  }
+  width: 100%;
+  max-width: 1200px;
+  min-height: 200px;
+  background-color: #4586ef; /*Cambiar color*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin: 30px auto;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60%;
+}
+
+/*Estilo del parrafo del contenedor ¿Ques es PetLite?*/
+.cont-how-PetLite-work p {
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+
+/*Estilo del titulo del contenedor ¿Ques es PetLite?*/
+.cont-how-PetLite-work h2 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+}
