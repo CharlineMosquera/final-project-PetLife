@@ -1,13 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const productsContainer = document.getElementById('products-container');
+    const productsContainerLocalStorage = document.getElementById('products-container-local-storage');
+    const productsTitle = document.querySelector('h2 strong');
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
     const clearCartButton = document.getElementById('clear-cart');
-    const productsContainerLocalStorage = document.getElementById('products-container-local-storage');
 
     function loadProductsFromLocalStorage() {
-        const products = JSON.parse(localStorage.getItem('products')) || []; 
-        displayProductsLocalStorage(products); 
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        if (products.length === 0) {
+            productsContainerLocalStorage.style.display = 'none';
+            productsTitle.parentElement.style.display = 'none';
+        } else {
+            displayProductsLocalStorage(products);
+        }
     }
 
     function displayProductsLocalStorage(products) {

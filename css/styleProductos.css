@@ -73,24 +73,24 @@ h2 {
 }
 
 #add-products-button {
-    background-color: #FFC107; /* Cambia el color de fondo a amarillo */
+    background-color: #FFC107;
     color: white;
     border: none;
-    padding: 15px 30px; /* Aumenta el tamaño del botón */
-    font-size: 20px; /* Incrementa el tamaño de la fuente */
-    border-radius: 5px; /* Mantiene los bordes redondeados */
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 #add-products-button:hover {
-    background-color: #E0A800; /* Un tono más oscuro de amarillo al pasar el mouse */
+    background-color: #E0A800;
     cursor: pointer;
 }
 
 h2 {
     font-weight: bold;
     color:#eab748;
-    text-align: center; /* Centra el título */
-    margin-top: 40px; /* Espacio arriba del título */
-    margin-bottom: 20px; /* Espacio abajo del título */
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px; 
 }
