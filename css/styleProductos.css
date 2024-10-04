@@ -4,93 +4,116 @@
 
 /* ESTILOS GENERALES */
 h2 {
-    font-weight: bold;
+  font-weight: bold;
 }
 /* Estilos para las tarjetas de productos */
 .card {
-    border: #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+  border: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 }
-  
+
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
-  
-.card-img-top { 
-    max-height: 200px;
-    object-fit: contain;
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: contain;
 }
-  
+
 .card-body {
-    padding: 24px;
+  padding: 24px;
 }
-  
+
 .card-title {
-    font-weight: bold;
-    color: #0056b3;
-    margin-bottom: 8px;
+  font-weight: bold;
+  color: #0056b3;
+  margin-bottom: 8px;
 }
-  
-  /* Estilos para la puntuación de estrellas */
+
+/* Estilos para la puntuación de estrellas */
 .rating {
-    font-size: 15px;
-    color: #ffc107; /* Amarillo para las estrellas */
-    margin-bottom: 8px;
+  font-size: 15px;
+  color: #ffc107; /* Amarillo para las estrellas */
+  margin-bottom: 8px;
 }
-  
-  /* Estilos para el precio */
+
+/* Estilos para el precio */
 .price {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
-  
-  /* Estilos para el botón de añadir al carrito */
+
+/* Estilos para el botón de añadir al carrito */
 .add-to-cart {
-    background-color: #3586ff; /* Azul Bootstrap */
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    font-size: 16px;
-    transition: background-color 0.3s;
+  background-color: #3586ff; /* Azul Bootstrap */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
-  
+
 .add-to-cart:hover {
-    background-color: #0056b3;
-    cursor: pointer;
+  background-color: #0056b3;
+  cursor: pointer;
 }
 
 .allProducts {
-    margin-top: 8%;
-    margin-bottom: 20%;
+  margin-top: 8%;
+  margin-bottom: 20%;
 }
 
-.addProducts{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.addProducts {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 #add-products-button {
-    background-color: #FFC107;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 #add-products-button:hover {
-    background-color: #E0A800;
-    cursor: pointer;
+  background-color: #e0a800;
+  cursor: pointer;
 }
 
 h2 {
-    font-weight: bold;
-    color:#eab748;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px; 
+  font-weight: bold;
+  color: #eab748;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 390px) {
+  .addProducts {
+    margin-bottom: 50vh;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 540px) {
+  .addProducts {
+    margin-bottom: 35vh;
+  }
 }
