@@ -1,8 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const productsContainer = document.getElementById('products-container');
+    const productsContainerLocalStorage = document.getElementById('products-container-local-storage');
+    const productsTitle = document.querySelector('h2 strong');
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
     const clearCartButton = document.getElementById('clear-cart');
+
+    function loadProductsFromLocalStorage() {
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+        if (products.length === 0) {
+            productsContainerLocalStorage.style.display = 'none';
+            productsTitle.parentElement.style.display = 'none';
+        } else {
+            displayProductsLocalStorage(products);
+        }
+    }
+
+    function displayProductsLocalStorage(products) {
+        productsContainerLocalStorage.innerHTML = "";
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('col-md-4', 'mb-4', 'product');
+            productDiv.innerHTML = `
+                <div class="card h-100">
+                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <div class="card-body text-center">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+                <p class="price">$${product.price}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                productsContainerLocalStorage.appendChild(productDiv);
+        });
+    }
+
+    loadProductsFromLocalStorage();
 
     let cart = [];
 
@@ -79,5 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartUI();
     });
 
+    document.getElementById('add-products-button').addEventListener('click', function() {
+        window.location.href = '../html/formulario.html';
+      });
 
 });
+

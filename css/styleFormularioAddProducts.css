@@ -1,0 +1,151 @@
+.AgregarProducto{
+    background-color: #a09d98;
+    color: black;
+    align-items:center ;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    margin: 15px auto; /* Centra el formulario horizontalmente */
+    padding: 15px;
+    border-radius: 50px;
+    margin-bottom: 60vh;
+    margin-top: 10vh;
+}
+
+.form-add-product{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+}
+
+.tittle-contact {
+    font-family: "Quicksand";
+    font-weight: 700;
+    font-size: 24px;
+    display: block;
+    text-align: center;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    margin-bottom: 3px;
+    font-family: "Nunito";
+    font-weight: 700;
+    font-size: 16px;
+    color: #0c0c0c;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-family: "Nunito";
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón "Agregar producto" centrado y más ancho */
+input[type="submit"] {
+    padding: 10px 40px;  /* Aumentar el tamaño del botón */
+    background-color: #eab748;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;  /* Centra el botón */
+    margin-top: 10px;
+    width: 50%;  /* Hacer el botón más ancho */
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #2c7a9e;
+}
+
+/* Botón "Elegir archivo" estilizado */
+input[type="file"] {
+    background-color: #3586ff;  /* Fondo azul */
+    color: white;  /* Texto blanco */
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-family: "Nunito";
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #0056b3;  /* Color del botón */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #003d80;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Nunito";
+    font-size: 16px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra similar a los inputs */
+}
+
+select:focus {
+    outline: none; /* Elimina el borde azul predeterminado */
+    border: 2px solid #3586ff; /* Añade borde personalizado en el focus */
+}
+
+
+@media (min-width: 540px) and (max-width: 767px) {
+    .AgregarProducto {
+      width: 80%;
+      margin: 10px auto;
+      margin-bottom: 60vh;
+    }
+  }
+  @media (max-width: 767px) {
+    .AgregarProducto {
+        width: 90%;
+        padding: 15px;
+        margin-bottom: 30vh;
+    }
+
+    input[type="submit"] {
+        width: 80%; 
+    }
+
+    label, input, select {
+        font-size: 14px;
+    }
+
+    input[type="file"], select {
+        padding: 8px;
+    }
+}
+
+
+/* FUENTES */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
