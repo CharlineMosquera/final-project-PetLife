@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return alert("Todos los campos son obligatorios");
         }
 
+        if (isNaN(price) || parseFloat(price) <= 0) {
+            return alert("El precio debe ser un número válido mayor a 0");
+        }
+
         const reader = new FileReader();
         reader.onload = function (e) {
             const imageBase64 = e.target.result;

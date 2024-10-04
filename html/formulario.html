@@ -83,29 +83,36 @@
         <input type="file" name="product-image" id="product-image" accept="image/*" required>
       </label>
 
-        <label for="product-name">
-            Nombre del producto 
-            <input type="text" name="product-name" id="product-name" required>
-        </label>
-
-        <label for="product-description">
-            Descripción
-            <input type="text" name="product-description" id="product-description" required>
-        </label>
-        <label for="product-price">
-          Precio
-          <input type="text" name="product-price" id="product-price" required>
-      </label>
-
+      <label for="product-name">
+        Nombre del producto 
+        <input type="text" name="product-name" id="product-name" placeholder="Ingresa el nombre del producto" required>
+    </label>
+    
+    <label for="product-description">
+        Descripción
+        <input type="text" name="product-description" id="product-description" placeholder="Ingresa una descripción" required>
+    </label>
+    
+    <label for="product-price">
+        Precio
+        <input type="text" name="product-price" id="product-price" placeholder="Ingresa el precio" required>
+    </label>
+  
       <label for="product-category">
           Categoría 
-          <input type="text" name="product-category" id="product-category" required>
+          <select name="product-category" id="product-category" required>
+            <option value="">Selecciona una categoría</option>
+            <option value="Comida">Comida</option>
+            <option value="Higiene">Higiene</option>
+            <option value="Suplementos">Suplementos</option>
+            <option value="Caja de subscripción">Caja de subscripción</option>
+        </select>
       </label>
-
-      <label for="product-subCategory">
-        Subcategoría
-        <input type="text" name="product-subCategory" id="product-subCategory" required>
-    </label>
+      
+    <label for="product-subCategory">
+      Subcategoría
+      <input type="text" name="product-subCategory" id="product-subCategory" placeholder="Ingresa la subcategoría" required>
+  </label>
 
 
         <input type="submit" value="Agregar producto">
