@@ -150,5 +150,5 @@ document
     document.getElementById("form-registro").reset();
 
     // Lo envia a la pagina de login
-    /* window.location.href = "../html/login.html"; */
+    window.location.href = "../html/login.html";
   });
