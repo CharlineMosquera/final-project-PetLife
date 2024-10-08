@@ -59,6 +59,15 @@ body {
   gap: 20px;
 }
 
+.iconos8 span {
+  display: block; 
+  margin-top: 5px; 
+  font-size: 14px; 
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .barra-menu {
   display: flex;
   justify-content: space-around;

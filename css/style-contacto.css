@@ -40,57 +40,47 @@
 }
 
 /* Para pantallas pequeñas, ajusta el tamaño y márgenes */
-@media (max-width: 430px) {
-  .contacto {
-    width: 80%;
-    margin: 10px auto;
-    margin-bottom: 95%;
-  }
-}
-
-@media (max-width: 360px) {
-  .contacto {
-    width: 80%;
-    margin: 10px auto;
-    margin-bottom: 55vh;
-  }
-}
-
 @media (min-width: 540px) and (max-width: 767px) {
   .contacto {
-    width: 80%;
+    max-width: 80%;
     margin: 10px auto;
-    margin-bottom: 60vh;
+    margin-bottom: 40vh;
   }
+}
+
+@media (max-width: 390px) {
+  .contacto {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 30vh;
+    margin-bottom: 65vh;
+  }
+}
+@media (min-width: 391px) and (max-width: 767px) {
+  .contacto {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 30vh;
+    margin-bottom: 50vh;
+  }
+
+  label,
+  input,
+  select {
+    font-size: 14px;
+  }
+
 }
 
 @media (min-width: 768px) {
   .contacto {
-    width: 80%;
-    margin-bottom: 50%;
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 30vh;
+    margin-bottom: 50vh;
   }
 }
 
-@media (min-width: 912px) {
-  .contacto {
-    width: 80%;
-    margin-bottom: 40%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .contacto {
-    width: 100%;
-    margin-bottom: 28%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .contacto {
-    width: 100%;
-    margin-bottom: 20%;
-  }
-}
 /* titulo h1  */
 
 .tittle-contact {

@@ -3,7 +3,7 @@
 // Validación para el nombre
 document.getElementById("nombre").addEventListener("input", function () {
   // Seleccionamos el id y añadimos un listener para que escuche cuando el usuario escriba
-  const nombre = this.value; // Guardamos el valor ingresado
+  const nombre = this.value.trim(); // Guardamos el valor ingresado
   const errorNombre = document.getElementById("error-nombre"); // Seleccionamos el párrafo que mostrará el mensaje de error
 
   // Si el campo está vacío:
@@ -12,7 +12,10 @@ document.getElementById("nombre").addEventListener("input", function () {
     errorNombre.classList.remove("d-none", "alert-success"); // Removemos las clases del mensaje de success
     errorNombre.classList.add("alert-danger"); // Añadimos la clase del mensaje de error
   } else {
+    errorNombre.classList.remove("alert-danger"); // Ocultamos el mensaje de error
     errorNombre.classList.add("alert-success"); // Mostramos el mensaje de éxito
+    errorNombre.textContent = "¡Nombre válido!";
+    errorNombre.classList.remove("d-none");
   }
 });
 
@@ -92,11 +95,28 @@ document
     }
   });
 
-/* Cuando de click en el Boton de Crear Cuenta */
+// Cuando de click en el Boton de Crear Cuenta 
 document
   .getElementById("form-registro")
   .addEventListener("submit", function (event) {
     event.preventDefault();
+
+    // Obtener las constaseñas y verificar si son iguales
+    const password1 = document.getElementById("password").value
+    const password2 = document.getElementById("password-confirm").value
+    const errorAccountCreation = document.getElementById("error-accountcreation");
+
+    if (password1 !== password2) {
+      errorAccountCreation.textContent = "Las contraseñas no coinciden. Asegúrate de ingresar la misma contraseña para crear tu cuenta.";
+      errorAccountCreation.classList.remove("d-none", "alert-success");
+      errorAccountCreation.classList.add("alert-danger");
+      return; //Detenemos la ejecución si la contraseña no es igual
+
+    } else {
+      // Si las contraseñas coinciden, ocultamos el error
+      errorAccountCreation.textContent = "";
+      errorAccountCreation.classList.add("d-none");   
+    }
 
     // Se crea el objeto usuario
     const nuevoUsuario = {
