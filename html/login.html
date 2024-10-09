@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contáctanos</title>
+    <title>Inicio de Sesion</title>
     <link rel="icon" href="../img/shared/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="../css/style-contacto.css" rel="stylesheet">
-    <link href="../css/styleHeaderYFooter.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="/css/styleLogin.css">
+    <link rel="stylesheet" href="/css/styleHeaderYFooter.css">
 </head>
 
 <body>
@@ -26,13 +24,13 @@
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="navbar-brand " href="index.html"><img class="logoPetlite" src="../img/shared/logo.png"
-                                alt="Logo PetLite">
+                        <a class="navbar-brand " href="index.html"><img class="logoPetlite"
+                                src="../img/shared/logo.png" alt="Logo PetLite">
                         </a>
                         <!-- Barra de busqueda Principal -->
                         <form class="d-flex barra-principal" role="search">
                             <input class="form-control search-bar-primary" type="search"
-                                placeholder="¿Qué necesita tu mascota?"" aria-label="Search">
+                                placeholder="¿Que producto buscas?" aria-label="Search">
                         </form>
                         <div class="iconos8">
                             <a href="login.html" title="Ingresar">
@@ -44,12 +42,11 @@
                         </div>
                     </div>
 
-
                 </div>
 
                 <!-- Barra de busqueda mobile -->
                 <form class="d-flex" role="search">
-                    <input class="form-control search-bar-mobile" type="search" placeholder="¿Qué necesita tu mascota?"
+                    <input class="form-control search-bar-mobile" type="search" placeholder="¿Que producto buscas?"
                         aria-label="Search">
                 </form>
                 <!-- Barra de navegacion -->
@@ -76,41 +73,25 @@
         </nav>
     </header>
 
-    <!-- Contenedor Contáctanos -->
+    <main>
+        <!-- Form Login -->
+        <div class="login">
+            <h1 class="tittle-login">Ingresa tus datos para iniciar sesión:</h1>
+            <form id="form-login">
+                <label for="email">Correo Electrónico:</label>
+                <input id="email" type="email" name="email" placeholder="Tu Correo" required>
+                <div id="error-email" class="alert alert-danger d-none"></div>
 
-    <div class="container contact-us">
-        <h2><strong>Contáctanos</strong></h2>
-        <p> En <span class="petlite-app">PetLite</span> valoramos la comunicación abierta y estamos aquí para
-            ayudarte. Si tienes preguntas, inquietudes o sugerencias sobre nuestros productos, no dudes en
-            ponerte en contacto con nosotros. ¡Nuestro equipo está comprometido a brindarte la mejor atención posible y
-            a
-            asegurar que tu experiencia con nosotros sea excepcional! </p>
-    </div>
+                <label for="password">Contraseña:</label>
+                <input id="password" type="password" name="password1" placeholder="Contraseña" required>
+                <div id="error-password" class="alert alert-danger d-none"></div>
 
-    <!-- Contenedor para el formulario -->
+                <button id="button" type="submit" class="button-cuenta">Iniciar Sesión</button>
+                <p class="register-option">¿No tienes una cuenta? <a href="./registro.html">Registrate aquí</a></p>
+            </form>
+        </div>
 
-    <div class="contacto">
-        <h1 class="tittle-contact">Ingresa tu información aquí:</h1>
-        <form onsubmit="return alerta()" class="form-contact" action="https://formspree.io/f/xdknrejg" method="post">
-            <label for="nombre">Nombre:</label>
-            <input id="nombre" type="text" name="nombre" placeholder="Tu Nombre">
-
-            <label for="lastName">Apellido:</label>
-            <input id="lastName" type="text" name="lastname" placeholder="Tu Apellido">
-
-            <label for="phone">Teléfono:</label>
-            <input id="phone" type="tel" name="phone" placeholder="Tu Teléfono">
-
-            <label for="email">Correo Electrónico:</label>
-            <input id="email" type="email" name="email" placeholder="Tu Correo">
-
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="4" placeholder="Escriba su mensaje aquí!"></textarea>
-
-
-            <button id="button" type="submit" class="button-enviar">Enviar</button>
-        </form>
-    </div>
+    </main>
 
     <!-- Footer: Contenedor para las ondas animadas -->
     <footer>
@@ -137,11 +118,11 @@
         </ul>
         <p>© 2024 PetLite. Todos los derechos reservados.</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../js/scriptContactanos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="../js/scriptLogin.js"></script>
 </body>
 
 </html>
