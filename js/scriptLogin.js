@@ -42,7 +42,8 @@ document
       alert("No existe usuario con ese correo");
       return;
     }
-    if (usuarioBuscado.password !== usuarioInicio.password) {
+    // Valida si la contraseña es correcta y desifra la contraseña guardada
+    if (atob(usuarioBuscado.password) !== usuarioInicio.password) {
       alert("La contraseña es incorrecta");
       return;
     }

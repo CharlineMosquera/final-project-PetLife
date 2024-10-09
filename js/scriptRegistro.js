@@ -123,7 +123,7 @@ document
       nombre: nombre.value,
       email: email.value,
       phone: phone.value,
-      password: password.value,
+      password: btoa(password.value), // Cifra la contraseña
     };
 
     // crea o toma los valores del array usuarios
