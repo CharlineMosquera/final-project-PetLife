@@ -51,4 +51,7 @@ document
     alert("INICIO DE SESION EXITOSO");
     // resetea el formulario
     document.getElementById("form-login").reset();
+
+    // Lo envia a la pagina de inicio
+    window.location.href = "../html/index.html";
   });
