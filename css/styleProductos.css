@@ -228,6 +228,16 @@ footer {
   margin-bottom: 20px;
 }
 
+@media (max-width: 600px) {
+  .products-panel {
+    flex-direction: column-reverse;
+  }
+
+  .car {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 390px) {
   .addProducts {
     margin-bottom: 50vh;
