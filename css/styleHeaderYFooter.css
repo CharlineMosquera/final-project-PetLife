@@ -54,9 +54,7 @@ body {
 }
 
 .iconos8 {
-  display: flex;
-  width: 100px;
-  gap: 20px;
+  position: relative;
 }
 
 .iconos8 span {

@@ -123,7 +123,7 @@ document
       nombre: nombre.value,
       email: email.value,
       phone: phone.value,
-      password: password.value,
+      password: btoa(password.value), // Cifra la contraseña
     };
 
     // crea o toma los valores del array usuarios
@@ -137,7 +137,7 @@ document
       // si el usuario ya existe muestra la alerta y sale de la funcion
       alert("El usuario ya esta registrado");
       return;
-    };
+    }
 
     // Agrega el usuario al array
     Usuarios.push(nuevoUsuario);
@@ -146,9 +146,41 @@ document
 
     // Muestra confirmacion de que se creo el usuario
     alert("Usuario registrado con éxito");
-    // resetea el formulario
+
+    // Resetea el formulario
     document.getElementById("form-registro").reset();
 
     // Lo envia a la pagina de login
-    /* window.location.href = "../html/login.html"; */
+    window.location.href = "../html/login.html";
   });
+
+
+// Obtener elementos del DOM
+const passwordInput = document.getElementById('password');
+const passwordInputConfirm = document.getElementById('password-confirm');
+const togglePassword = document.getElementById('toggle-password');
+const togglePasswordConfirm = document.getElementById('toggle-password-confirm');
+
+// Agregar evento de clic para alternar la visibilidad de la contraseña
+togglePassword.addEventListener('click', function () {
+    // Verifica si el campo de contraseña está en modo "password"
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text'; // Cambiar a texto para mostrar la contraseña
+        togglePassword.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
+    } else {
+        passwordInput.type = 'password'; // Cambiar a password para ocultar la contraseña
+        togglePassword.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
+    }
+});
+
+// Agregar evento de clic para alternar la visibilidad de la contraseña de confirmacion
+togglePasswordConfirm.addEventListener('click', function () {
+    // Verifica si el campo de contraseña está en modo "password"
+    if (passwordInputConfirm.type === 'password') {
+        passwordInputConfirm.type = 'text'; // Cambiar a texto para mostrar la contraseña
+        togglePasswordConfirm.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
+    } else {
+        passwordInputConfirm.type = 'password'; // Cambiar a password para ocultar la contraseña
+        togglePasswordConfirm.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
+    }
+});
