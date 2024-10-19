@@ -69,28 +69,35 @@
     </nav>
   </header>
 
-  <aside class="allProducts">
-    <div class="row row-cols-1 row-cols-md-3 g-4 products-container" id="products-container">
+  <div class="products-panel">
+    <aside class="allProducts">
+      <div class="row row-cols-1 row-cols-md-3 g-4 products-container" id="products-container">
 
-    </div>
-    <h2><strong>Productos agregados con local storage</strong></h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4 products-container" id="products-container-local-storage">
+      </div>
+      <h2><strong>Productos agregados con local storage</strong></h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4 products-container" id="products-container-local-storage">
 
-    </div>
+      </div>
 
-    <div class="addProducts">
-      <button id="add-products-button">Agregar producto</button>
-    </div>
+      <div class="addProducts">
+        <button id="add-products-button">Agregar producto</button>
+      </div>
+    </aside>
 
+    <section class="car">
+      <h2>Carrito de compra</h2>
+      <ul id="cart-list" class="car-list"></ul> <!-- Cambiado el ID aquí -->
+      <div class="basket-total" id="cart-total"> <!-- Cambiado el ID aquí -->
+        <label>Total</label>
+        <p>$ 0.00</p>
+      </div>
+      <div class="basket-buttons" id="basket-buttons">
+        <button id="pay-cart" class="pay-car">Comprar</button> <!-- Cambiado el ID aquí -->
+        <button id="clear-cart" class="clear-car">Vaciar</button> <!-- Cambiado el ID aquí -->
+      </div>
+    </section>
 
-  </aside>
-
-  <section class="car">
-    <h2>Carrito de compra</h2>
-    <ul id="cart-list" class="car-list"></ul> <!-- Cambiado el ID aquí -->
-    <p id="cart-total" class="total">Total de compra: <span>0.00</span></p> <!-- Cambiado el ID aquí -->
-    <button id="clear-cart" class="clearCar">Limpiar carrito</button> <!-- Cambiado el ID aquí -->
-  </section>
+  </div>
 
   <!-- Footer: Contenedor para las ondas animadas -->
   <footer>

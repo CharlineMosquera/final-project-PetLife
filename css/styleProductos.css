@@ -32,6 +32,63 @@ h2 {
   margin-bottom: 8px;
 }
 
+.basket {
+  display: flex;
+  flex-direction: row;
+}
+
+.basket img {
+  max-width: 110px;
+}
+
+.basket .card-body {
+  width: 300px;
+  padding: 20px 6px;
+}
+
+.basket .card-title {
+  text-align: left;
+  font-size: 16px;
+}
+
+.basket .rating {
+  text-align: left;
+}
+
+.basket .price {
+  text-align: left;
+}
+
+.basket .basket-quantity {
+  background: #ffc107;
+  position: absolute;
+  border-radius: 50%;
+  padding: 3px 6px;
+  font-size: 14px;
+  color: white;
+  left: 10px;
+  top: 10px;
+}
+
+.basket-total {
+  background: #f0f0e0;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.basket-total label {
+  margin: 0;
+  font-size: 16px;
+  color: #eab748;
+  font-weight: 700;
+}
+
+.basket-total p {
+  margin: 0;
+  color: #060202;
+  font-weight: 700;
+}
+
 /* Estilos para la puntuación de estrellas */
 .rating {
   font-size: 15px;
@@ -63,7 +120,7 @@ h2 {
 
 .allProducts {
   margin-top: 8%;
-  margin-bottom: 20%;
+  margin-bottom: 30%;
 }
 
 .addProducts {
@@ -104,6 +161,71 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.products-container {
+  padding: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.products-panel {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.car {
+  background-color: #eee6cd;
+  padding: 30px;
+  width: 600px;
+  max-width: 600px;
+}
+
+.basket-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+  visibility: hidden;
+}
+
+.pay-car {
+  padding: 10px 40px; /* Aumentar el tamaño del botón */
+  background-color: #3586ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.clear-car {
+  padding: 10px 40px; /* Aumentar el tamaño del botón */
+  background-color: #eab748;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  text-align: center;
+}
+
+.car-list {
+  list-style: none;
+  padding: 0;
+}
+
+.car-list li {
+  background: #fffeef;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 390px) {

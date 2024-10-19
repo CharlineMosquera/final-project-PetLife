@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
     const clearCartButton = document.getElementById('clear-cart');
+    const payCarButton = document.getElementById('pay-cart');
+    const basketButtons = document.getElementById('basket-buttons');
 
     function loadProductsFromLocalStorage() {
         const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-body text-center">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">$${product.price}</p>
+                <p class="price">${formatCurrency(product.price)}</p>
                 <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
                 productsContainerLocalStorage.appendChild(productDiv);
         });
@@ -66,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-body text-center">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">$${product.price}</p>
+                <p class="price">${formatCurrency(product.price)}</p>
                 <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
             productsContainer.appendChild(productDiv);
 
@@ -90,13 +92,30 @@ document.addEventListener('DOMContentLoaded', () => {
         let total = 0; // Inicializar el total
         cart.forEach(item => {
             const listItem = document.createElement('li');
-            listItem.innerHTML = `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
+            listItem.innerHTML = `
+                <div class="card basket h-100">
+                    <span class="basket-quantity">x${item.quantity}</span>
+                    <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${item.name}</h5>
+                        <p class="rating">⭐⭐⭐⭐⭐</p>
+                        <p class="price">${formatCurrency((item.price * item.quantity).toFixed(2))}</p>
+                    </div> 
+                </div>`;
 
             cartList.appendChild(listItem);
             total += item.price * item.quantity;
              // Calcular el total
         });
-        cartTotal.textContent = total.toFixed(2); // Actualizar el total en la interfaz
+        cartTotal.innerHTML =
+            `<label>Total</label> 
+            <p>${formatCurrency(total)}</p>`; // Actualizar el total en la interfaz
+
+        if (cart.length > 0) {
+            basketButtons.style.visibility = 'visible';
+        } else {
+            basketButtons.style.visibility = 'hidden';
+        }
     }
 
 
@@ -107,6 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     clearCartButton.addEventListener('click', () => {
+        let resultado = confirm("¿Estás seguro de que deseas vaciar tu canasta?");
+        if (resultado) {
+            cart = [];
+            updateCartUI();
+        }
+    });
+
+    // Limpiar el carrito
+    payCarButton.addEventListener('click', () => {
+        alert('Productos comprados');
         cart = [];
         updateCartUI();
     });
@@ -117,3 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+function formatCurrency(value) {
+    const formatter = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    });
+    return formatter.format(value);
+}
