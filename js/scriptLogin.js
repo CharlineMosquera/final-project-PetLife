@@ -50,6 +50,10 @@ document
 
     // Muestra confirmacion de que ingreso
     alert("INICIO DE SESION EXITOSO");
+
+    // Guardar usuario logueado
+    localStorage.setItem("isLoggedIn", 'true');
+
     // resetea el formulario
     document.getElementById("form-login").reset();
 
