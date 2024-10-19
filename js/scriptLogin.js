@@ -48,9 +48,6 @@ document
       return;
     }
 
-    // Muestra confirmacion de que ingreso
-    alert("INICIO DE SESION EXITOSO");
-
     // Guardar usuario logueado
     localStorage.setItem("isLoggedIn", 'true');
 

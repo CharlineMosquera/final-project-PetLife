@@ -137,7 +137,7 @@ document
       // si el usuario ya existe muestra la alerta y sale de la funcion
       alert("El usuario ya esta registrado");
       return;
-    };
+    }
 
     // Agrega el usuario al array
     Usuarios.push(nuevoUsuario);
@@ -146,7 +146,8 @@ document
 
     // Muestra confirmacion de que se creo el usuario
     alert("Usuario registrado con éxito");
-    // resetea el formulario
+
+    // Resetea el formulario
     document.getElementById("form-registro").reset();
 
     // Lo envia a la pagina de login
