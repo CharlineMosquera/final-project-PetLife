@@ -92,11 +92,17 @@
                 <div id="error-phone" class="alert alert-danger d-none"></div>
 
                 <label for="password">Contraseña:</label>
-                <input id="password" type="password" name="password1" placeholder="Contraseña" required>
+                <div class="registro-password">
+                    <input id="password" type="password" name="password" placeholder="Contraseña" required>
+                    <span class="toggle-password" id="toggle-password">👁️</span>
+                </div>
                 <div id="error-password" class="alert alert-danger d-none"></div>
 
-                <label for="password">Confirma tu contraseña:</label>
-                <input id="password-confirm" type="password" name="password2" placeholder="Contraseña" required>
+                <label for="password-confirm">Confirma tu contraseña:</label>
+                <div class="registro-password">
+                    <input id="password-confirm" type="password" name="password-confirm" placeholder="Contraseña" required>
+                    <span class="toggle-password" id="toggle-password-confirm">👁️</span>
+                </div>
                 <div id="match-message" class="alert d-none"></div>
                 <div id="error-accountcreation" class="alert alert-danger d-none"></div>
 
