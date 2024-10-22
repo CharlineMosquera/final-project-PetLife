@@ -43,7 +43,7 @@
 
                 <!-- Barra de busqueda mobile -->
                 <form class="d-flex" role="search">
-                    <input class="form-control search-bar-mobile" type="search" placeholder="¿Que producto buscas?"
+                    <input class="form-control search-bar-mobile" type="search" placeholder="¿Qué necesita tu mascota?"
                         aria-label="Search">
                 </form>
                 <!-- Barra de navegacion -->
@@ -101,7 +101,9 @@
                     <span class="toggle-password" id="toggle-password-confirm">👁️</span>
                 </div>
                 <div id="match-message" class="alert d-none"></div>
-                <div id="error-accountcreation" class="alert alert-danger d-none"></div>
+
+                <!-- Error que se muestra si el correo ya está registrado -->
+                <div id="error-accountcreation" class="alert alert-danger d-none text-center mx-auto""></div>
 
                 <button id="button" type="submit" class="button-cuenta">Crear cuenta</button>
                 <p class="login-option">¿Ya tienes una cuenta? <a href="./login.html">Inicia sesión aquí</a></p>
@@ -142,6 +144,6 @@
     <script src="../js/scriptRegistro.js"></script>
     <script src="../js/scriptBotonUsuario.js"></script>
      
-</body>
+</body> 
 
 </html>

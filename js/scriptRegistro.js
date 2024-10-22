@@ -102,20 +102,18 @@ document
     event.preventDefault();
 
     // Obtener las constaseñas y verificar si son iguales
-    const password1 = document.getElementById("password").value
-    const password2 = document.getElementById("password-confirm").value
+    const password1 = document.getElementById("password").value;
+    const password2 = document.getElementById("password-confirm").value;
     const errorAccountCreation = document.getElementById("error-accountcreation");
 
     if (password1 !== password2) {
       errorAccountCreation.textContent = "Las contraseñas no coinciden. Asegúrate de ingresar la misma contraseña para crear tu cuenta.";
       errorAccountCreation.classList.remove("d-none", "alert-success");
       errorAccountCreation.classList.add("alert-danger");
-      return; //Detenemos la ejecución si la contraseña no es igual
-
+      return; // Detenemos la ejecución si las contraseñas no coinciden
     } else {
-      // Si las contraseñas coinciden, ocultamos el error
+      errorAccountCreation.classList.add("d-none");
       errorAccountCreation.textContent = "";
-      errorAccountCreation.classList.add("d-none");   
     }
 
     // Se crea el objeto usuario
@@ -134,9 +132,11 @@ document
       (usuario) => usuario.email == nuevoUsuario.email
     );
     if (usuarioExistente) {
-      // si el usuario ya existe muestra la alerta y sale de la funcion
-      alert("El usuario ya esta registrado");
-      return;
+      // Mostrar la alerta de usuario ya registrado
+      errorAccountCreation.textContent = "El usuario ya está registrado con este correo electrónico.";
+      errorAccountCreation.classList.remove("d-none", "alert-success");
+      errorAccountCreation.classList.add("alert-danger");
+      return; // Detener la ejecución si el usuario ya existe
     }
 
     // Agrega el usuario al array
@@ -145,42 +145,12 @@ document
     localStorage.setItem("usuarios", JSON.stringify(Usuarios, null, 2));
 
     // Muestra confirmacion de que se creo el usuario
-    alert("Usuario registrado con éxito");
+    errorAccountCreation.textContent = "¡Usuario registrado exitosamente!";
+    errorAccountCreation.classList.remove("d-none", "alert-danger");
+    errorAccountCreation.classList.add("alert-success");
 
-    // Resetea el formulario
-    document.getElementById("form-registro").reset();
-
-    // Lo envia a la pagina de login
-    window.location.href = "../html/login.html";
+    // Redirige a la página de login en 5seg
+    setTimeout(function () {
+      window.location.href = "../html/login.html";
+    }, 3000)
   });
-
-
-// Obtener elementos del DOM
-const passwordInput = document.getElementById('password');
-const passwordInputConfirm = document.getElementById('password-confirm');
-const togglePassword = document.getElementById('toggle-password');
-const togglePasswordConfirm = document.getElementById('toggle-password-confirm');
-
-// Agregar evento de clic para alternar la visibilidad de la contraseña
-togglePassword.addEventListener('click', function () {
-    // Verifica si el campo de contraseña está en modo "password"
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text'; // Cambiar a texto para mostrar la contraseña
-        togglePassword.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
-    } else {
-        passwordInput.type = 'password'; // Cambiar a password para ocultar la contraseña
-        togglePassword.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
-    }
-});
-
-// Agregar evento de clic para alternar la visibilidad de la contraseña de confirmacion
-togglePasswordConfirm.addEventListener('click', function () {
-    // Verifica si el campo de contraseña está en modo "password"
-    if (passwordInputConfirm.type === 'password') {
-        passwordInputConfirm.type = 'text'; // Cambiar a texto para mostrar la contraseña
-        togglePasswordConfirm.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
-    } else {
-        passwordInputConfirm.type = 'password'; // Cambiar a password para ocultar la contraseña
-        togglePasswordConfirm.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
-    }
-});
