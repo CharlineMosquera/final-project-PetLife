@@ -126,25 +126,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     clearCartButton.addEventListener('click', () => {
-        let resultado = confirm("¿Estás seguro de que deseas vaciar tu canasta?");
-        if (resultado) {
+        const alertContainer = document.createElement('div');
+        alertContainer.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
+        alertContainer.innerHTML = `
+            <strong>¿Estás seguro de que deseas vaciar tu canasta?</strong>
+            <button type="button" class="btn btn-danger" id="confirm-clear-cart">Vaciar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="alert">Cancelar</button>
+        `;
+        
+        basketButtons.insertAdjacentElement('beforebegin', alertContainer);
+    
+        document.getElementById('confirm-clear-cart').addEventListener('click', () => {
+            cart = [];
+            updateCartUI();
+            alertContainer.remove(); // Quitamos la alerta después de vaciar el carrito
+        });
+    });
+    
+    // Confirmar la compra si el carrito está lleno
+    payCarButton.addEventListener('click', () => {
+            const alertContainer = document.createElement('div');
+            alertContainer.classList.add('alert', 'alert-success', 'alert-dismissible', 'fade', 'show');
+            alertContainer.innerHTML = `
+                <strong>¡Compra realizada con éxito!</strong> Tus productos han sido comprados.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+    
+            basketButtons.insertAdjacentElement('beforebegin', alertContainer);
+    
+            // Vaciamos el carrito después de la compra exitosa
             cart = [];
             updateCartUI();
         }
-    });
-
-    // Limpiar el carrito
-    payCarButton.addEventListener('click', () => {
-        alert('Productos comprados');
-        cart = [];
-        updateCartUI();
-    });
-
+    )});
+    
+    // Agregar productos al carrito (redirigir al formulario)
     document.getElementById('add-products-button').addEventListener('click', function() {
         window.location.href = '../html/formulario.html';
-      });
-
-});
+    });
 
 function formatCurrency(value) {
     const formatter = new Intl.NumberFormat('es-CO', {
