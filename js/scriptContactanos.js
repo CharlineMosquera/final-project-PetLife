@@ -1,5 +1,5 @@
 // llamamos la funcion alerta y creamos las variales y un getelementbyid para traer los id del form del html contactanos
-function alerta() {
+function contactanos() {
  let name = document.getElementById('nombre').value.trim();
  let lastName = document.getElementById('lastName').value.trim();
  let phone = document.getElementById('phone').value.trim();
@@ -45,8 +45,9 @@ if(!emailRegex.test(email)){
     alert('escribir el mensaje')
     return false;
  }
-
  // aqui realizmos el return true en caso que todas las condiciones se den enviaran el formulario
- return true;
+
+   alert('Mensaje enviado!')
+   return true;
     
 } 
