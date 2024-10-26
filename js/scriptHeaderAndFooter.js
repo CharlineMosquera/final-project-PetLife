@@ -1,3 +1,21 @@
+// Function to load external HTML into a div
+function includeHTML() {
+    document.getElementById("header").innerHTML = fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById("header").innerHTML = data
+          renderUserButton();
+      });
+
+    document.getElementById("footer").innerHTML = fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+}
+
+// Call the function
+includeHTML();
+
+
 // Función para renderizar el botón según el estado de autenticación
 function renderUserButton() {
     const userButton = document.getElementById('user-button');
@@ -44,5 +62,3 @@ function renderUserButton() {
     }
 }
 
-// Llamamos a la función para renderizar el botón al cargar la página
-renderUserButton();
