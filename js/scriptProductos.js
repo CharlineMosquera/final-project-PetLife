@@ -126,14 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     clearCartButton.addEventListener('click', () => {
-        let resultado = confirm("¿Estás seguro de que deseas vaciar tu canasta?");
-        if (resultado) {
-            cart = [];
-            updateCartUI();
-        }
+        Swal.fire({
+            title: "¿Estás seguro de que deseas vaciar tu canasta?",
+            confirmButtonText: "Si",
+            showCancelButton: true,
+            cancelButtonText: "No, continuar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+              cart = [];
+              updateCartUI();
+              Swal.fire({
+                title: 'Productos eliminados!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+        });
     });
 
-    // Limpiar el carrito
+    // Comprar productos
     payCarButton.addEventListener('click', () => {
         Swal.fire({
             title: 'Productos comprados',

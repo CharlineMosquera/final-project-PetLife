@@ -42,15 +42,21 @@ function renderUserButton() {
 
         // Agregamos el evento para cerrar sesión
         document.getElementById('logout-button').addEventListener('click', function() {
-            let resultado = confirm("¿Estás seguro de que deseas cerrar sesión?");
-            if (resultado) {
-                localStorage.setItem('isLoggedIn', 'false');
-                localStorage.removeItem('userLogger');
-                renderUserButton(); // Actualizamos el botón después de cerrar sesión
+            Swal.fire({
+                title: "¿Estás seguro de que deseas cerrar sesión?",
+                confirmButtonText: "Si",
+                showCancelButton: true,
+                cancelButtonText: "No, cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    localStorage.setItem('isLoggedIn', 'false');
+                    localStorage.removeItem('userLogger');
+                    renderUserButton(); // Actualizamos el botón después de cerrar sesión
 
-                // Lo envia a la pagina de inicio
-                window.location.href = "../html/login.html";
-            }
+                    // Lo envia a la pagina de inicio
+                    window.location.href = "../html/login.html";
+                }
+            });
         });
     } else {
         // Si no está logueado, mostramos el botón de login
