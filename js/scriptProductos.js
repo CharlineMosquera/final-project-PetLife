@@ -135,7 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     payCarButton.addEventListener('click', () => {
-        alert('Productos comprados');
+        Swal.fire({
+            title: 'Productos comprados',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
         cart = [];
         updateCartUI();
     });
