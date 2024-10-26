@@ -60,6 +60,7 @@ document
 
     // Guardar usuario logueado
     localStorage.setItem("isLoggedIn", 'true');
+    localStorage.setItem("userLogger", usuarioBuscado.nombre);
 
     // resetea el formulario
     document.getElementById("form-login").reset();

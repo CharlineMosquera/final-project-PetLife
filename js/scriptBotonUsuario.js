@@ -9,11 +9,17 @@ function renderUserButton() {
     userButton.innerHTML = '';
 
     if (isLoggedIn) {
+        // Nombre de usuario logueado
+        const userLogged = localStorage.getItem('userLogger');
+
         // Si el usuario está logueado, mostramos el botón de logout
         userButton.innerHTML = `
-            <a id="logout-button" title="Cerrar sesión">
-                <img src="../img/shared/log-out.png" alt="Icono Usario">
-            </a>
+            <div class="d-flex align-items-center">
+                <h4 class="m-0 mx-2 text-white">Hola, ${userLogged.split(' ')[0] || ''}</h4>
+                <a id="logout-button" class="cursor-pointer" title="Cerrar sesión">
+                    <img src="../img/shared/log-out.png" alt="Icono Usario">
+                </a>
+            </div>
         `;
 
         // Agregamos el evento para cerrar sesión
@@ -21,6 +27,7 @@ function renderUserButton() {
             let resultado = confirm("¿Estás seguro de que deseas cerrar sesión?");
             if (resultado) {
                 localStorage.setItem('isLoggedIn', 'false');
+                localStorage.removeItem('userLogger');
                 renderUserButton(); // Actualizamos el botón después de cerrar sesión
 
                 // Lo envia a la pagina de inicio
