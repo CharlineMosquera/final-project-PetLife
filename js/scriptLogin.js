@@ -39,17 +39,28 @@ document
     );
     if (!usuarioBuscado) {
       // si el usuario no existe muestra la alerta y sale de la funcion
-      alert("No existe usuario con ese correo");
+      Swal.fire({
+        title: 'Error!',
+        text: 'No existe usuario con ese correo',
+        icon: 'error',
+        confirmButtonText: 'Volver a intentar'
+      })
       return;
     }
     // Valida si la contraseña es correcta y desifra la contraseña guardada
     if (atob(usuarioBuscado.password) !== usuarioInicio.password) {
-      alert("La contraseña es incorrecta");
+      Swal.fire({
+        title: 'Error!',
+        text: 'La contraseña es incorrecta',
+        icon: 'error',
+        confirmButtonText: 'Volver a intentar'
+      })
       return;
     }
 
     // Guardar usuario logueado
     localStorage.setItem("isLoggedIn", 'true');
+    localStorage.setItem("userLogger", usuarioBuscado.nombre);
 
     // resetea el formulario
     document.getElementById("form-login").reset();
