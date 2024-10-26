@@ -25,6 +25,34 @@
             tu hogar cada mes.</p>
     </div>
 
+    <!-- Contenedor para el formulario -->
+    <div class="subscription-box">
+        <h1 class="tittle-subscription">Ingresa la información de tu mascota aquí:</h1>
+        <form id="form-subscription" class="form-subscription-box">
+            <label for="name">Nombre:</label>
+            <input id="name" type="text" name="name" placeholder="Nombre de tu mascota">
+            <div id="error-name" class="alert alert-danger d-none"></div>
+
+            <label for="brand">Raza:</label>
+            <input id="brand" type="text" name="brand" placeholder="Raza de tu mascota">
+            <div id="error-brand" class="alert alert-danger d-none"></div>
+
+            <label for="size">Tamaño:</label>
+            <input id="size" type="text" name="size" placeholder="Tamaño de tu mascota">
+            <div id="error-size" class="alert alert-danger d-none"></div>
+
+            <label for="age">Edad:</label>
+            <input id="age" type="number" name="age" placeholder="Edad de tu mascota">
+            <div id="error-age" class="alert alert-danger d-none"></div>
+
+            <label for="notes">Historial médico / Notas adicionales:</label>
+            <textarea id="notes" name="notes" placeholder="Historial médico de tu mascota"></textarea>
+            <div id="error-notes" class="alert alert-danger d-none"></div>
+
+            <button id="button" type="submit" class="button-enviar">Guardar</button>
+        </form>
+    </div>
+
 
     <!-- Div for footer -->
     <div id="footer"></div>
@@ -32,8 +60,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/scriptHeaderAndFooter.js"></script>
-    <script src="../js/scriptContactanos.js"></script>
+    <script src="../js/scriptCajaSubscripcion.js"></script>
 
 </body>
 </html>
