@@ -135,7 +135,12 @@ document
     );
     if (usuarioExistente) {
       // si el usuario ya existe muestra la alerta y sale de la funcion
-      alert("El usuario ya esta registrado");
+        Swal.fire({
+            title: 'Error!',
+            text: 'El usuario ya esta registrado',
+            icon: 'error',
+            confirmButtonText: 'Volver a intentar'
+        })
       return;
     }
 
@@ -145,13 +150,18 @@ document
     localStorage.setItem("usuarios", JSON.stringify(Usuarios, null, 2));
 
     // Muestra confirmacion de que se creo el usuario
-    alert("Usuario registrado con éxito");
+      Swal.fire({
+          title: 'Usuario registrado con éxito',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+      }).then(() => {
+          // Resetea el formulario
+          document.getElementById("form-registro").reset();
 
-    // Resetea el formulario
-    document.getElementById("form-registro").reset();
-
-    // Lo envia a la pagina de login
-    window.location.href = "../html/login.html";
+          // Lo envia a la pagina de login
+          window.location.href = "../html/login.html";
+      })
   });
 
 
