@@ -1,3 +1,5 @@
+const baseURL = "http://localhost:8080/api/registro";
+
 // VALIDACIÓN PARA EL FORM DE REGISTRO
 
 // Validación para el nombre
@@ -95,102 +97,102 @@ document
     }
   });
 
-// Cuando de click en el Boton de Crear Cuenta 
+// Cuando de click en el Boton de Crear Cuenta
 document
   .getElementById("form-registro")
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Obtener las constaseñas y verificar si son iguales
-    const password1 = document.getElementById("password").value
-    const password2 = document.getElementById("password-confirm").value
-    const errorAccountCreation = document.getElementById("error-accountcreation");
+    const password1 = document.getElementById("password").value;
+    const password2 = document.getElementById("password-confirm").value;
+    const errorAccountCreation = document.getElementById(
+      "error-accountcreation"
+    );
 
     if (password1 !== password2) {
-      errorAccountCreation.textContent = "Las contraseñas no coinciden. Asegúrate de ingresar la misma contraseña para crear tu cuenta.";
+      errorAccountCreation.textContent =
+        "Las contraseñas no coinciden. Asegúrate de ingresar la misma contraseña para crear tu cuenta.";
       errorAccountCreation.classList.remove("d-none", "alert-success");
       errorAccountCreation.classList.add("alert-danger");
       return; //Detenemos la ejecución si la contraseña no es igual
-
     } else {
       // Si las contraseñas coinciden, ocultamos el error
       errorAccountCreation.textContent = "";
-      errorAccountCreation.classList.add("d-none");   
+      errorAccountCreation.classList.add("d-none");
     }
 
     // Se crea el objeto usuario
     const nuevoUsuario = {
-      nombre: nombre.value,
+      nombre_cliente: nombre.value,
+      /* apellido_cliente: */
       email: email.value,
-      phone: phone.value,
-      password: btoa(password.value), // Cifra la contraseña
+      telefono: phone.value,
+      contrasenia: btoa(password.value), // Cifra la contraseña
     };
 
-    // crea o toma los valores del array usuarios
-    let Usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    // Valida si el usuario existe
-    const usuarioExistente = Usuarios.find(
-      (usuario) => usuario.email == nuevoUsuario.email
-    );
-    if (usuarioExistente) {
-      // si el usuario ya existe muestra la alerta y sale de la funcion
-        Swal.fire({
-            title: 'Error!',
-            text: 'El usuario ya esta registrado',
-            icon: 'error',
-            confirmButtonText: 'Volver a intentar'
-        })
-      return;
-    }
-
-    // Agrega el usuario al array
-    Usuarios.push(nuevoUsuario);
-    // lo guarda en el localStorage como json
-    localStorage.setItem("usuarios", JSON.stringify(Usuarios, null, 2));
+    exponerDatos("post", nuevoUsuario);
 
     // Muestra confirmacion de que se creo el usuario
-      Swal.fire({
-          title: 'Usuario registrado con éxito',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 1500
-      }).then(() => {
-          // Resetea el formulario
-          document.getElementById("form-registro").reset();
+    Swal.fire({
+      title: "Usuario registrado con éxito",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      // Resetea el formulario
+      document.getElementById("form-registro").reset();
 
-          // Lo envia a la pagina de login
-          window.location.href = "../html/login.html";
-      })
+      // Lo envia a la pagina de login
+      window.location.href = "../html/login.html";
+    });
   });
 
-
 // Obtener elementos del DOM
-const passwordInput = document.getElementById('password');
-const passwordInputConfirm = document.getElementById('password-confirm');
-const togglePassword = document.getElementById('toggle-password');
-const togglePasswordConfirm = document.getElementById('toggle-password-confirm');
+const passwordInput = document.getElementById("password");
+const passwordInputConfirm = document.getElementById("password-confirm");
+const togglePassword = document.getElementById("toggle-password");
+const togglePasswordConfirm = document.getElementById(
+  "toggle-password-confirm"
+);
 
 // Agregar evento de clic para alternar la visibilidad de la contraseña
-togglePassword.addEventListener('click', function () {
-    // Verifica si el campo de contraseña está en modo "password"
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text'; // Cambiar a texto para mostrar la contraseña
-        togglePassword.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
-    } else {
-        passwordInput.type = 'password'; // Cambiar a password para ocultar la contraseña
-        togglePassword.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
-    }
+togglePassword.addEventListener("click", function () {
+  // Verifica si el campo de contraseña está en modo "password"
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text"; // Cambiar a texto para mostrar la contraseña
+    togglePassword.textContent = "🙈"; // Cambiar el ícono a un "ojo cerrado"
+  } else {
+    passwordInput.type = "password"; // Cambiar a password para ocultar la contraseña
+    togglePassword.textContent = "👁️"; // Cambiar el ícono a un "ojo abierto"
+  }
 });
 
 // Agregar evento de clic para alternar la visibilidad de la contraseña de confirmacion
-togglePasswordConfirm.addEventListener('click', function () {
-    // Verifica si el campo de contraseña está en modo "password"
-    if (passwordInputConfirm.type === 'password') {
-        passwordInputConfirm.type = 'text'; // Cambiar a texto para mostrar la contraseña
-        togglePasswordConfirm.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
-    } else {
-        passwordInputConfirm.type = 'password'; // Cambiar a password para ocultar la contraseña
-        togglePasswordConfirm.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
-    }
+togglePasswordConfirm.addEventListener("click", function () {
+  // Verifica si el campo de contraseña está en modo "password"
+  if (passwordInputConfirm.type === "password") {
+    passwordInputConfirm.type = "text"; // Cambiar a texto para mostrar la contraseña
+    togglePasswordConfirm.textContent = "🙈"; // Cambiar el ícono a un "ojo cerrado"
+  } else {
+    passwordInputConfirm.type = "password"; // Cambiar a password para ocultar la contraseña
+    togglePasswordConfirm.textContent = "👁️"; // Cambiar el ícono a un "ojo abierto"
+  }
 });
+
+async function exponerDatos(metodo, usuario) {
+  try {
+    let response = await fetch(`${baseURL}/crear`, {
+      method: metodo,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    if (!response.ok) {
+      throw new Error("Error al crear el usuario.");
+    }
+    const data = await response.json(); // Parsea la respuesta como JSON
+    console.log("Respuesta del servidor:", data);
+  } catch (error) {}
+}

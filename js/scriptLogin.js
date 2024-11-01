@@ -1,3 +1,6 @@
+const baseURL = "http://localhost:8080/api/login";
+let nombreUsuario;
+
 // Validación para el correo electrónico
 document.getElementById("email").addEventListener("input", function () {
   const email = this.value.trim(); // Guardamos el valor ingresado, eliminando cualquier espacio extra al principio o final (trim)
@@ -18,7 +21,7 @@ document.getElementById("email").addEventListener("input", function () {
   }
 });
 
-/* Cuando de click en el Boton de Crear Cuenta */
+/* Cuando de click en el Boton de Iniciar Sesion */
 document
   .getElementById("form-login")
   .addEventListener("submit", function (event) {
@@ -27,40 +30,14 @@ document
     // Se crea el objeto usuario
     const usuarioInicio = {
       email: email.value,
-      password: password.value,
+      contrasenia: btoa(password.value),
     };
 
-    // crea o toma los valores del array usuarios
-    let Usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    // Valida si el usuario existe buscando con email
-    const usuarioBuscado = Usuarios.find(
-      (usuario) => usuario.email === usuarioInicio.email
-    );
-    if (!usuarioBuscado) {
-      // si el usuario no existe muestra la alerta y sale de la funcion
-      Swal.fire({
-        title: 'Error!',
-        text: 'No existe usuario con ese correo',
-        icon: 'error',
-        confirmButtonText: 'Volver a intentar'
-      })
-      return;
-    }
-    // Valida si la contraseña es correcta y desifra la contraseña guardada
-    if (atob(usuarioBuscado.password) !== usuarioInicio.password) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'La contraseña es incorrecta',
-        icon: 'error',
-        confirmButtonText: 'Volver a intentar'
-      })
-      return;
-    }
+    exponerDatos("get", usuarioInicio);
 
     // Guardar usuario logueado
-    localStorage.setItem("isLoggedIn", 'true');
-    localStorage.setItem("userLogger", usuarioBuscado.nombre);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userLogger", nombreUsuario);
 
     // resetea el formulario
     document.getElementById("form-login").reset();
@@ -70,17 +47,34 @@ document
   });
 
 // Obtener elementos del DOM
-const passwordInput = document.getElementById('password');
-const togglePassword = document.getElementById('toggle-password');
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("toggle-password");
 
 // Agregar evento de clic para alternar la visibilidad de la contraseña
-togglePassword.addEventListener('click', function () {
-    // Verifica si el campo de contraseña está en modo "password"
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text'; // Cambiar a texto para mostrar la contraseña
-        togglePassword.textContent = '🙈'; // Cambiar el ícono a un "ojo cerrado"
-    } else {
-        passwordInput.type = 'password'; // Cambiar a password para ocultar la contraseña
-        togglePassword.textContent = '👁️'; // Cambiar el ícono a un "ojo abierto"
-    }
+togglePassword.addEventListener("click", function () {
+  // Verifica si el campo de contraseña está en modo "password"
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text"; // Cambiar a texto para mostrar la contraseña
+    togglePassword.textContent = "🙈"; // Cambiar el ícono a un "ojo cerrado"
+  } else {
+    passwordInput.type = "password"; // Cambiar a password para ocultar la contraseña
+    togglePassword.textContent = "👁️"; // Cambiar el ícono a un "ojo abierto"
+  }
 });
+
+async function exponerDatos(metodo, usuario) {
+  try {
+    let response = await fetch(`${baseURL}/iniciar-sesion`, {
+      method: metodo,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    if (!response.ok) {
+      throw new Error("Error al iniciar sesion.");
+    }
+    const cliente = await response.json(); // Parsea la respuesta como JSON
+    nombreUsuario = cliente.nombre_cliente;
+  } catch (error) {}
+}
