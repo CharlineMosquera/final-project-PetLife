@@ -14,102 +14,70 @@
 </head>
 
 <body>
-    <!-- Nav -->
-    <header>
-        <nav class="navbar navbar-expand-lg colors">
-            <div class="container-fluid barra-login">
-                <div class="menu-responsive">
-                    <div class="barra-menu">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <a class="navbar-brand " href="index.html"><img class="logoPetlite" src="../img/shared/logo.png"
-                                alt="Logo PetLite">
-                        </a>
-                        <!-- Barra de busqueda Principal -->
-                        <form class="d-flex barra-principal" role="search">
-                            <input class="form-control search-bar-primary" type="search"
-                                placeholder="¿Qué necesita tu mascota?" aria-label="Search">
-                        </form>
-                        <div class="iconos8">
-                            <a href="login.html" title="Ingresar">
-                                <img src="../img/shared/user-32.png" alt="Icono Usario">
-                            </a>
-                            <a href="" title="Carrito">
-                                <img src="../img/shared/shopping-cart-32w.png" alt="Icono Carrito">
-                            </a>
-                        </div>
+    <!-- Div for header -->
+    <div id="header"></div>
+
+    <main class="container home-container">
+        <div class="home-image">
+            <img src="../img/shared/background-home.jpg" alt="Background home">
+        </div>
+        <section id="brand" class="home-brand">
+            <h2>Marcas destacadas</h2>
+            <p>Descubre opciones de alimentos personalizados y productos de bienestar, seleccionados especificamente para tu hijo perruno</p>
+        </section>
+
+        <section class="row home-specs">
+            <div class="col-md-4 text-center mb-4">
+                <div class="card">
+                    <img src="../img/productos/hills.png" class="card-img-top" alt="Comida Personalizada">
+                    <div class="card-body">
+                        <h4 class="card-title">Comida Personalizada</h4>
+                        <p class="card-text">Ofrecemos opciones de alimentación adaptadas a las necesidades de tu perro.</p>
+                        <a href="productos.html" class="btn btn-primary">Ver productos</a>
                     </div>
-
                 </div>
-
-                <!-- Barra de busqueda mobile -->
-                <form class="d-flex" role="search">
-                    <input class="form-control search-bar-mobile" type="search" placeholder="¿Qué necesita tu mascota?"
-                        aria-label="Search">
-                </form>
-                <!-- Barra de navegacion -->
-                <div class="collapse navbar-collapse nav-menu" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-menu">
-                        <li class="nav-item">
-                            <a class="nav-link active letras" aria-current="page" href="./index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./cajasuscripcion.html">Caja
-                                Suscripción</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./nosotros.html">Acerca de Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./contactanos.html">Contáctanos</a>
-                        </li>
-                    </ul>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="card">
+                    <img src="../img/productos/Royal-canin.jpg" class="card-img-top" alt="Suplementos">
+                    <div class="card-body">
+                        <h4 class="card-title">Suplementos</h4>
+                        <p class="card-text">Mejora la salud y bienestar de tu mascota con nuestros suplementos de calidad.</p>
+                        <a href="productos.html" class="btn btn-primary">Explorar suplementos</a>
+                    </div>
                 </div>
-        </nav>
-    </header>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <div class="card">
+                    <img src="../img/productos/Jabon-NaturalCare.jpg" class="card-img-top" alt="Productos de Aseo">
+                    <div class="card-body">
+                        <h4 class="card-title">Productos de Aseo</h4>
+                        <p class="card-text">Encuentra lo mejor en productos de aseo para mantener a tu perro limpio y feliz.</p>
+                        <a href="productos.html" class="btn btn-primary">Ver productos de aseo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <main>
 
+        <section id="about" class="home-brand">
+            <h2>Productos disponibles</h2>
+            <p>Navega y cuida a tu mascota con la mejor seleccion. Ademas, suscribete y recibe tu caja PetLite en cualquier ciudad de Colombia</p>
+
+            <div class="home-brand-buttons">
+                <a href="productos.html">Explora la tienda</a>
+                <a href="cajasuscripcion.html">Personaliza tu caja</a>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer: Contenedor para las ondas animadas -->
-    <footer>
-        <div class="waves">
-            <div class="wave" id="wave1"></div>
-            <div class="wave" id="wave2"></div>
-            <div class="wave" id="wave3"></div>
-            <div class="wave" id="wave4"></div>
-        </div>
-        <ul class="social_icon"> <!-- Lista de iconos de redes sociales -->
-            <li><a href="https://facebook.com/" target="_blank"><img src="../img/shared/facebook.png" alt="Facebook" />
-            </li>
-            <li><a href="https://x.com/" target="_blank"><img src="../img/shared/twitter.png" alt="X" /> </li>
-            <li><a href="https://www.instagram.com/" target="_blank"><img src="../img/shared/instagram.png"
-                        alt="Instagram" /> </li>
-            </li>
-        </ul>
-        <ul class="menu-footer"> <!-- Menú de navegación -->
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="cajasuscripcion.html">Caja Suscripción</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="contactanos.html">Contáctanos</a></li>
-        </ul>
-        <p>© 2024 PetLite. Todos los derechos reservados.</p>
-    </footer>
+    <!-- Div for footer -->
+    <div id="footer"></div>
 
-    <script src="../js/itemsController.js"></script>
-    <script src="../js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/scriptHeaderAndFooter.js"></script>
 </body>
-
 </html>

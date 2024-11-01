@@ -1,3 +1,75 @@
 /* FUENTES */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.home-container {
+    margin-bottom: 400px;
+}
+
+.home-brand {
+    text-align: center;
+    margin: 40px;
+}
+
+.home-brand h2 {
+    font-weight: bold;
+    color: #eab748;
+}
+
+.home-brand p {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.home-specs img {
+    max-height: 300px;
+    width: auto;
+    object-fit: contain;
+}
+
+.home-specs h4 {
+    font-weight: bold;
+    color: #eab748;
+    margin: 20px;
+}
+
+.home-specs p {
+    font-size: 18px;
+}
+
+.home-specs .card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-brand-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.home-brand-buttons a {
+    padding: 10px 16px;
+    background-color: #eab748;
+    color: white !important;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.home-image {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.home-image img {
+    border-radius: 20px;
+    max-width: 100%;
+}
