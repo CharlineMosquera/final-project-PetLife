@@ -38,11 +38,24 @@
             <div id="error-brand" class="alert alert-danger d-none"></div>
 
             <label for="size">Tamaño:</label>
-            <input id="size" type="text" name="size" placeholder="Tamaño de tu mascota">
+            <select id="size" name="size" class="form-select" aria-label="Tamaño de tu mascota">
+                <option value="" disabled selected>Tamaño de tu mascota</option>
+                <option value="MINI">MINI</option>
+                <option value="PEQUEÑO">PEQUEÑO</option>
+                <option value="MEDIANO">MEDIANO</option>
+                <option value="GRANDE">GRANDE</option>
+                <option value="GIGANTE">GIGANTE</option>
+            </select>
             <div id="error-size" class="alert alert-danger d-none"></div>
 
             <label for="age">Edad:</label>
-            <input id="age" type="text" name="age" placeholder="Edad de tu mascota">
+            <select id="age" name="age" class="form-select" aria-label="Edad de tu mascota">
+                <option value="" disabled selected>Edad de tu mascota</option>
+                <option value="BABY">BABY</option>
+                <option value="CACHORRO">CACHORRO</option>
+                <option value="ADULTO">ADULTO</option>
+                <option value="SENIOR">SENIOR</option>
+            </select>
             <div id="error-age" class="alert alert-danger d-none"></div>
 
             <label for="notes">Historial médico / Notas adicionales:</label>

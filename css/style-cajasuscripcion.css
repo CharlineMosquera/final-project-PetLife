@@ -66,6 +66,7 @@
 
   label,
   input,
+  option,
   select {
     font-size: 14px;
   }
@@ -111,7 +112,8 @@
 .subscription-box input[type="text"],
 .subscription-box input[type="email"],
 .subscription-box input[type="number"],
-.subscription-box input[type="tel"] {
+.subscription-box input[type="tel"],
+.subscription-box select {
   width: 100%;
   padding: 2px;
   border: none;
@@ -123,7 +125,8 @@
 .subscription-box input[type="text"]:focus,
 .subscription-box input[type="number"]:focus,
 .subscription-box input[type="email"]:focus,
-.subscription-box input[type="tel"]:focus {
+.subscription-box input[type="tel"]:focus,
+.subscription-box select:focus {
   outline: none;
 }
 
