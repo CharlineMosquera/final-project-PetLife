@@ -49,7 +49,6 @@
   .subscription-box {
     max-width: 80%;
     margin: 10px auto;
-    margin-bottom: 40vh;
   }
 }
 
@@ -57,16 +56,12 @@
   .subscription-box {
     width: 90%;
     padding: 15px;
-    margin-bottom: 30vh;
-    margin-bottom: 65vh;
   }
 }
 @media (min-width: 391px) and (max-width: 767px) {
   .subscription-box {
     width: 90%;
     padding: 15px;
-    margin-bottom: 30vh;
-    margin-bottom: 50vh;
   }
 
   label,
@@ -81,8 +76,6 @@
   .subscription-box {
     width: 90%;
     padding: 30px;
-    margin-bottom: 30vh;
-    margin-bottom: 50vh;
   }
 }
 
@@ -190,4 +183,63 @@
 .alert-danger, .alert-success {
   font-size: 15px;
   padding: 5px;
+}
+
+.recommended-container {
+  padding: 40px;
+  max-width: 1600px;
+  margin: 0 auto 40vh;
+}
+
+.recommended-title {
+  width: 100%;
+  text-align: center;
+}
+
+.recommended-title h3 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #4586ef;
+  margin-bottom: 40px;
+}
+
+/* Estilos para las tarjetas de productos */
+.card {
+  border: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #0056b3;
+  margin-bottom: 8px;
+}
+
+/* Estilos para la puntuación de estrellas */
+.rating {
+  font-size: 15px;
+  color: #ffc107; /* Amarillo para las estrellas */
+  margin-bottom: 8px;
+}
+
+/* Estilos para el precio */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }

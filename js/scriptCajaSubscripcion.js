@@ -1,8 +1,10 @@
 // llamamos la funcion alerta y creamos las variales y un getelementbyid para traer los id del form del html contactanos
+const baseURL = "http://localhost:8080/api";
+
 /* Cuando de click en el Boton de Contactanos */
 document
   .getElementById("form-subscription")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
 
     let name = document.getElementById('name').value.trim();
@@ -48,21 +50,55 @@ document
     }
     removeError(errorNotes, "¡Notas válidas!")
 
-    // aqui realizmos el return true en caso que todas las condiciones se den enviaran el formulario
-    Swal.fire({
-      title: 'Información de tu mascota enviada!',
-      icon: 'success',
-      showConfirmButton: false,
-      timer: 1500
-    }).then(() => {
-      // Resetea el formulario
-      document.getElementById("form-subscription").reset();
-      resetError(errorName);
-      resetError(errorBrand);
-      resetError(errorSize);
-      resetError(errorAge);
-      resetError(errorNotes);
-    })
+
+    const consultaMascota = {
+      "nombreMascota": name,
+      "raza": brand,
+      "tamanio": size,
+      "edad": age,
+      "historialMedico": notes
+    };
+
+    try {
+      let response = await fetch(`${baseURL}/mascotas/buscar-productos`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(consultaMascota),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(Object.values(errorData)[0] || "Error al consultar mascota.");
+      }
+
+      // Muestra confirmacion de que se proceso bien
+      Swal.fire({
+        title: 'Información de tu mascota enviada!',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        // Reinicia el formulario
+        document.getElementById("form-subscription").reset();
+        resetError(errorName);
+        resetError(errorBrand);
+        resetError(errorSize);
+        resetError(errorAge);
+        resetError(errorNotes);
+      })
+
+      const products = await response.json();
+      displayProducts(products)
+
+    } catch (error) {
+      Swal.fire({
+        title: "Hubo un problema al procesar la caja de subscripción de tu mascota",
+        text: error,
+        icon: "error"
+      })
+    }
     return true;
 
   });
@@ -85,4 +121,46 @@ function resetError(identifier) {
   identifier.classList.remove("alert-success"); // Ocultamos el mensaje de success
   identifier.classList.add("d-none"); // Ocultamos el componente
   identifier.textContent = ''; // Reinciamos el valor
+}
+
+// Mostrar los productos en el DOM
+function displayProducts(products) {
+  const recommendedContainer = document.getElementById('recommended-container');
+
+  const headerDiv = document.createElement('div');
+  headerDiv.classList.add('recommended-title');
+  headerDiv.innerHTML = `
+                <h3>Productos recomendados</h3>
+    `;
+  recommendedContainer.appendChild(headerDiv);
+
+
+  products.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('col-md-4', 'mb-4');
+    productDiv.classList.add('product');
+    productDiv.innerHTML = `
+      <div class="card h-100">
+        <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
+        <div class="card-body text-center">
+          <h5 class="card-title">${product.nombre_producto}</h5>
+          <p class="rating">⭐⭐⭐⭐⭐</p>
+          <p class="price">${formatCurrency(product.precio)}</p>
+          <button class="btn btn-primary add-to-cart d-none" data-id="${product.nombre_producto}">Agregar al carrito</button>
+        </div>
+       </div>`;
+    recommendedContainer.appendChild(productDiv);
+
+    productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
+  });
+}
+
+function formatCurrency(value) {
+  const formatter = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
+  });
+  return formatter.format(value);
 }
