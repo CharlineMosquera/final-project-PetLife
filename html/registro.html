@@ -22,9 +22,17 @@
         <div class="registro">
             <h1 class="tittle-registro">Ingresa tus datos para crear una cuenta nueva:</h1>
             <form id="form-registro">
-                <label for="nombre">Nombre y Apellido:</label>
-                <input id="nombre" type="text" name="nombre" placeholder="Tu Nombre Completo" required>
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" type="text" name="nombre" placeholder="Tu Nombre" required>
                 <div id="error-nombre" class="alert alert-danger d-none"></div>
+
+                <label for="apellido">Apellido:</label>
+                <input id="apellido" type="text" name="apellido" placeholder="Tu Apellido" required>
+                <div id="error-apellido" class="alert alert-danger d-none"></div>
+
+                <label for="direccion">Dirección:</label>
+                <input id="direccion" type="text" name="direccion" placeholder="Tu dirección" required>
+                <div id="error-direccion" class="alert alert-danger d-none"></div>
 
                 <label for="email">Correo Electrónico:</label>
                 <input id="email" type="email" name="email" placeholder="Tu Correo" required>

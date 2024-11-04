@@ -21,6 +21,44 @@ document.getElementById("nombre").addEventListener("input", function () {
   }
 });
 
+// Validación para el apellido
+document.getElementById("apellido").addEventListener("input", function () {
+  // Seleccionamos el id y añadimos un listener para que escuche cuando el usuario escriba
+  const apellido = this.value.trim(); // Guardamos el valor ingresado
+  const errorApellido = document.getElementById("error-apellido"); // Seleccionamos el párrafo que mostrará el mensaje de error
+
+  // Si el campo está vacío:
+  if (apellido === "") {
+    errorApellido.textContent = "El apellido es obligatorio."; // Mostramos el error
+    errorApellido.classList.remove("d-none", "alert-success"); // Removemos las clases del mensaje de success
+    errorApellido.classList.add("alert-danger"); // Añadimos la clase del mensaje de error
+  } else {
+    errorApellido.classList.remove("alert-danger"); // Ocultamos el mensaje de error
+    errorApellido.classList.add("alert-success"); // Mostramos el mensaje de éxito
+    errorApellido.textContent = "¡Apellido válido!";
+    errorApellido.classList.remove("d-none");
+  }
+});
+
+// Validación para el direccion
+document.getElementById("direccion").addEventListener("input", function () {
+  // Seleccionamos el id y añadimos un listener para que escuche cuando el usuario escriba
+  const direccion = this.value.trim(); // Guardamos el valor ingresado
+  const errorDireccion = document.getElementById("error-direccion"); // Seleccionamos el párrafo que mostrará el mensaje de error
+
+  // Si el campo está vacío:
+  if (direccion === "") {
+    errorDireccion.textContent = "El dirección es obligatorio."; // Mostramos el error
+    errorDireccion.classList.remove("d-none", "alert-success"); // Removemos las clases del mensaje de success
+    errorDireccion.classList.add("alert-danger"); // Añadimos la clase del mensaje de error
+  } else {
+    errorDireccion.classList.remove("alert-danger"); // Ocultamos el mensaje de error
+    errorDireccion.classList.add("alert-success"); // Mostramos el mensaje de éxito
+    errorDireccion.textContent = "¡Dirección válida!";
+    errorDireccion.classList.remove("d-none");
+  }
+});
+
 // Validación para el correo electrónico
 document.getElementById("email").addEventListener("input", function () {
   const email = this.value.trim(); // Guardamos el valor ingresado, eliminando cualquier espacio extra al principio o final (trim)
@@ -100,8 +138,15 @@ document
 // Cuando de click en el Boton de Crear Cuenta
 document
   .getElementById("form-registro")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
+
+
+    const nombre = document.getElementById("nombre");
+    const apellido = document.getElementById("apellido");
+    const direccion = document.getElementById("direccion");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
 
     // Obtener las constaseñas y verificar si son iguales
     const password1 = document.getElementById("password").value;
@@ -125,27 +170,48 @@ document
     // Se crea el objeto usuario
     const nuevoUsuario = {
       nombre_cliente: nombre.value,
-      /* apellido_cliente: */
+      apellido_cliente: apellido.value,
+      direccion: direccion.value,
       email: email.value,
       telefono: phone.value,
       contrasenia: btoa(password.value), // Cifra la contraseña
     };
 
-    exponerDatos("post", nuevoUsuario);
+    try {
+      let response = await fetch(`${baseURL}/crear`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoUsuario),
+      });
 
-    // Muestra confirmacion de que se creo el usuario
-    Swal.fire({
-      title: "Usuario registrado con éxito",
-      icon: "success",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => {
-      // Resetea el formulario
-      document.getElementById("form-registro").reset();
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(Object.values(errorData)[0] || "Error al crear el usuario.");
+      }
 
-      // Lo envia a la pagina de login
-      window.location.href = "../html/login.html";
-    });
+      // Muestra confirmacion de que se creo el usuario
+      Swal.fire({
+        title: "Usuario registrado con éxito",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        // Resetea el formulario
+        document.getElementById("form-registro").reset();
+
+        // Lo envia a la pagina de login
+        window.location.href = "../html/login.html";
+      });
+
+    } catch (error) {
+      Swal.fire({
+        title: "Hubo un problema al registrar el usuario",
+        text: error,
+        icon: "error"
+      })
+    }
   });
 
 // Obtener elementos del DOM
@@ -179,20 +245,3 @@ togglePasswordConfirm.addEventListener("click", function () {
     togglePasswordConfirm.textContent = "👁️"; // Cambiar el ícono a un "ojo abierto"
   }
 });
-
-async function exponerDatos(metodo, usuario) {
-  try {
-    let response = await fetch(`${baseURL}/crear`, {
-      method: metodo,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    if (!response.ok) {
-      throw new Error("Error al crear el usuario.");
-    }
-    const data = await response.json(); // Parsea la respuesta como JSON
-    console.log("Respuesta del servidor:", data);
-  } catch (error) {}
-}
