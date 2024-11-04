@@ -1,3 +1,5 @@
+const baseURL = "http://localhost:8080/api";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const productsContainer = document.getElementById('products-container');
@@ -26,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.classList.add('col-md-4', 'mb-4', 'product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">${product.nombre_producto}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">${formatCurrency(product.price)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.precio)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
                 productsContainerLocalStorage.appendChild(productDiv);
         });
     }
@@ -45,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Cargar productos desde el archivo productos.json
-    fetch('/js/productos.json') // Asegúrate de que esta ruta sea correcta
+    // Cargar productos desde la base de datos
+    fetch(`${baseURL}/productos`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la red');
@@ -64,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.classList.add('product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">${product.nombre_producto}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">${formatCurrency(product.price)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.precio)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
             productsContainer.appendChild(productDiv);
 
             productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
@@ -95,16 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.innerHTML = `
                 <div class="card basket h-100">
                     <span class="basket-quantity">x${item.quantity}</span>
-                    <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                    <img src="${item.imagen}" class="card-img-top" alt="${item.nombre_producto}">
                     <div class="card-body text-center">
-                        <h5 class="card-title">${item.name}</h5>
+                        <h5 class="card-title">${item.nombre_producto}</h5>
                         <p class="rating">⭐⭐⭐⭐⭐</p>
-                        <p class="price">${formatCurrency((item.price * item.quantity).toFixed(2))}</p>
+                        <p class="price">${formatCurrency((item.precio * item.quantity).toFixed(2))}</p>
                     </div> 
                 </div>`;
 
             cartList.appendChild(listItem);
-            total += item.price * item.quantity;
+            total += item.precio * item.quantity;
              // Calcular el total
         });
         cartTotal.innerHTML =
