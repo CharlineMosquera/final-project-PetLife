@@ -141,7 +141,6 @@ document
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-
     const nombre = document.getElementById("nombre");
     const apellido = document.getElementById("apellido");
     const direccion = document.getElementById("direccion");

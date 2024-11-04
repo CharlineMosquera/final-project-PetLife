@@ -24,8 +24,11 @@ document.getElementById("email").addEventListener("input", function () {
 /* Cuando de click en el Boton de Iniciar Sesion */
 document
   .getElementById("form-login")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
 
     // Se crea el objeto usuario
     const usuarioInicio = {
@@ -33,17 +36,36 @@ document
       contrasenia: btoa(password.value),
     };
 
-    exponerDatos("get", usuarioInicio);
+    try {
+      let response = await fetch(`${baseURL}/iniciar-sesion`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuarioInicio),
+      });
 
-    // Guardar usuario logueado
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("userLogger", nombreUsuario);
+      if (!response.ok) {
+        throw new Error("Error al iniciar sesión");
+      }
 
-    // resetea el formulario
-    document.getElementById("form-login").reset();
+      // Guardar usuario logueado
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userLogger", nombreUsuario);
 
-    // Lo envia a la pagina de inicio
-    window.location.href = "../html/index.html";
+      // resetea el formulario
+      document.getElementById("form-login").reset();
+
+      // Lo envia a la pagina de inicio
+      window.location.href = "../html/index.html";
+    } catch (error) {
+      Swal.fire({
+        title: "Hubo un problema al iniciar sesión del usuario",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
   });
 
 // Obtener elementos del DOM
@@ -61,20 +83,3 @@ togglePassword.addEventListener("click", function () {
     togglePassword.textContent = "👁️"; // Cambiar el ícono a un "ojo abierto"
   }
 });
-
-async function exponerDatos(metodo, usuario) {
-  try {
-    let response = await fetch(`${baseURL}/iniciar-sesion`, {
-      method: metodo,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuario),
-    });
-    if (!response.ok) {
-      throw new Error("Error al iniciar sesion.");
-    }
-    const cliente = await response.json(); // Parsea la respuesta como JSON
-    nombreUsuario = cliente.nombre_cliente;
-  } catch (error) {}
-}
