@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:8080/api/login";
+const baseURL = "http://localhost:8080/api";
 let nombreUsuario;
 
 // Validación para el correo electrónico
@@ -37,7 +37,7 @@ document
     };
 
     try {
-      let response = await fetch(`${baseURL}/iniciar-sesion`, {
+      let response = await fetch(`${baseURL}/login/iniciar-sesion`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,15 +49,28 @@ document
         throw new Error("Error al iniciar sesión");
       }
 
-      // Guardar usuario logueado
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userLogger", nombreUsuario);
+      // Obtiene la informacion del usuario
+      try {
+        let responseData = await fetch(`${baseURL}/clientes/email/${usuarioInicio.email}`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" }
+        });
+        // Se extrae la data del cliente
+        const clientData = await responseData.json();
 
-      // resetea el formulario
-      document.getElementById("form-login").reset();
+        // Se guarda el nombre del cliente para mostrarlo en el header
+        localStorage.setItem("userLogger", clientData.nombre_cliente);
+      } catch (e) { }
+      finally {
+        // Guardar usuario logueado
+        localStorage.setItem("isLoggedIn", "true");
 
-      // Lo envia a la pagina de inicio
-      window.location.href = "../html/index.html";
+        // resetea el formulario
+        document.getElementById("form-login").reset();
+
+        // Lo envia a la pagina de inicio
+        window.location.href = "../html/index.html";
+      }
     } catch (error) {
       Swal.fire({
         title: "Hubo un problema al iniciar sesión del usuario",
