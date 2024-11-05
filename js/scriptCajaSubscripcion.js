@@ -127,13 +127,14 @@ function resetError(identifier) {
 function displayProducts(products) {
   const recommendedContainer = document.getElementById('recommended-container');
 
+  while (recommendedContainer.firstChild) {
+    recommendedContainer.removeChild(recommendedContainer.firstChild);
+  }
+
   const headerDiv = document.createElement('div');
   headerDiv.classList.add('recommended-title');
-  headerDiv.innerHTML = `
-                <h3>Productos recomendados</h3>
-    `;
+  headerDiv.innerHTML = `<h3>Productos recomendados</h3>`;
   recommendedContainer.appendChild(headerDiv);
-
 
   products.forEach(product => {
     const productDiv = document.createElement('div');
@@ -146,13 +147,19 @@ function displayProducts(products) {
           <h5 class="card-title">${product.nombre_producto}</h5>
           <p class="rating">⭐⭐⭐⭐⭐</p>
           <p class="price">${formatCurrency(product.precio)}</p>
-          <button class="btn btn-primary add-to-cart d-none" data-id="${product.nombre_producto}">Agregar al carrito</button>
         </div>
        </div>`;
     recommendedContainer.appendChild(productDiv);
-
-    productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
   });
+
+  const footerDiv = document.createElement('div');
+  footerDiv.classList.add('recommended-footer');
+  footerDiv.innerHTML = `<button class="redirect-add-product">Comprar estos productos</button>`;
+  recommendedContainer.appendChild(footerDiv);
+
+  footerDiv.querySelector('.redirect-add-product').addEventListener('click', () =>
+    window.location.href = '../html/productos.html'
+  );
 }
 
 function formatCurrency(value) {

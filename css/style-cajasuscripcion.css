@@ -246,3 +246,23 @@
   font-weight: bold;
   margin-bottom: 16px;
 }
+
+.recommended-footer {
+  width: 100%;
+  text-align: center;
+}
+
+.redirect-add-product {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.redirect-add-product:hover {
+  background-color: #e0a800;
+  cursor: pointer;
+}
