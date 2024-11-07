@@ -17,7 +17,6 @@
   color: white;
   border-radius: 20px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 60%;
 }
 
 /*Estilo del parrafo del contenedor ¿Ques es PetLite?*/
@@ -33,4 +32,237 @@
   font-weight: 700;
   font-size: 32px;
   text-align: center;
+}
+
+/*aspecto para el formulario completo lo que aparece en rojo  */
+.subscription-box {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto; /* Centra el formulario horizontalmente */
+  padding: 30px;
+  background-color: #e9d9bd;
+  border-radius: 50px;
+}
+
+/* Para pantallas pequeñas, ajusta el tamaño y márgenes */
+@media (min-width: 540px) and (max-width: 767px) {
+  .subscription-box {
+    max-width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .subscription-box {
+    width: 90%;
+    padding: 15px;
+  }
+}
+@media (min-width: 391px) and (max-width: 767px) {
+  .subscription-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  label,
+  input,
+  option,
+  select {
+    font-size: 14px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .subscription-box {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+/* titulo h1  */
+
+.tittle-subscription {
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 24px;
+  display: block;
+  text-align: center;
+}
+
+/* aspecto de los form  */
+.form-subscription-box {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+}
+
+/*  aspecto de los label de los input */
+.subscription-box label {
+  margin-top: 16px;
+  margin-bottom: 2px;
+  font-family: "Nunito";
+  font-weight: 700;
+  font-size: 16px;
+  color: #0c0c0c;
+}
+
+/* aspecto de los placeholder de text area de los input */
+
+.subscription-box input[type="text"],
+.subscription-box input[type="email"],
+.subscription-box input[type="number"],
+.subscription-box input[type="tel"],
+.subscription-box select {
+  width: 100%;
+  padding: 2px;
+  border: none;
+  font-family: "Nunito";
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.subscription-box input[type="text"]:focus,
+.subscription-box input[type="number"]:focus,
+.subscription-box input[type="email"]:focus,
+.subscription-box input[type="tel"]:focus,
+.subscription-box select:focus {
+  outline: none;
+}
+
+.subscription-box textarea {
+  outline: none;
+}
+
+/* aspecto al area del placeholder del textarea de escribir mensaje */
+.subscription-box textarea {
+  resize: vertical;
+  height: 50%;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+/* ajustar el boton y darle estilos */
+
+.subscription-box button {
+  padding: 5px;
+  background-color: #eab748;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 40px auto 20px;
+  width: 300px;
+  transition: background-color 0.3s ease;
+}
+/* color al boton cuando pase el mouse */
+.subscription-box button:hover {
+  background-color: #2c7a9e;
+}
+
+/* darle estilo al boton guion verde la anchura margen  */
+.button-enviar {
+  display: block;
+  align-items: center;
+  margin-top: 2px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* Estilos para las alertas de bootstrap */
+.alert {
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+/* Para asegurar que las alertas no ocupen más espacio del necesario */
+.alert-danger, .alert-success {
+  font-size: 15px;
+  padding: 5px;
+}
+
+.recommended-container {
+  padding: 40px;
+  max-width: 1600px;
+  margin: 0 auto 40vh;
+}
+
+.recommended-title {
+  width: 100%;
+  text-align: center;
+}
+
+.recommended-title h3 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #4586ef;
+  margin-bottom: 40px;
+}
+
+/* Estilos para las tarjetas de productos */
+.card {
+  border: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #0056b3;
+  margin-bottom: 8px;
+}
+
+/* Estilos para la puntuación de estrellas */
+.rating {
+  font-size: 15px;
+  color: #ffc107; /* Amarillo para las estrellas */
+  margin-bottom: 8px;
+}
+
+/* Estilos para el precio */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.recommended-footer {
+  width: 100%;
+  text-align: center;
+}
+
+.redirect-add-product {
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.redirect-add-product:hover {
+  background-color: #e0a800;
+  cursor: pointer;
 }

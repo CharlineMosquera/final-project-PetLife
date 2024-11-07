@@ -246,6 +246,10 @@ footer .wave#wave4 {
   animation: animateWave_02 3s linear infinite;
 }
 
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+
 /* Media queries para pantallas más pequeñas */
 @media (max-width: 600px) {
   footer {

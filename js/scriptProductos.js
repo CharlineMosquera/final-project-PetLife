@@ -1,3 +1,5 @@
+const baseURL = "http://localhost:8080/api";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const productsContainer = document.getElementById('products-container');
@@ -26,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.classList.add('col-md-4', 'mb-4', 'product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">${product.nombre_producto}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">${formatCurrency(product.price)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.precio)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
                 productsContainerLocalStorage.appendChild(productDiv);
         });
     }
@@ -45,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Cargar productos desde el archivo productos.json
-    fetch('/js/productos.json') // Asegúrate de que esta ruta sea correcta
+    // Cargar productos desde la base de datos
+    fetch(`${baseURL}/productos`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la red');
@@ -64,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.classList.add('product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">${product.nombre_producto}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">${formatCurrency(product.price)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.precio)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
             productsContainer.appendChild(productDiv);
 
             productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
@@ -95,16 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.innerHTML = `
                 <div class="card basket h-100">
                     <span class="basket-quantity">x${item.quantity}</span>
-                    <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                    <img src="${item.imagen}" class="card-img-top" alt="${item.nombre_producto}">
                     <div class="card-body text-center">
-                        <h5 class="card-title">${item.name}</h5>
+                        <h5 class="card-title">${item.nombre_producto}</h5>
                         <p class="rating">⭐⭐⭐⭐⭐</p>
-                        <p class="price">${formatCurrency((item.price * item.quantity).toFixed(2))}</p>
+                        <p class="price">${formatCurrency((item.precio * item.quantity).toFixed(2))}</p>
                     </div> 
                 </div>`;
 
             cartList.appendChild(listItem);
-            total += item.price * item.quantity;
+            total += item.precio * item.quantity;
              // Calcular el total
         });
         cartTotal.innerHTML =
@@ -126,44 +128,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     clearCartButton.addEventListener('click', () => {
-        const alertContainer = document.createElement('div');
-        alertContainer.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-        alertContainer.innerHTML = `
-            <strong>¿Estás seguro de que deseas vaciar tu canasta?</strong>
-            <button type="button" class="btn btn-danger" id="confirm-clear-cart">Vaciar</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="alert">Cancelar</button>
-        `;
-        
-        basketButtons.insertAdjacentElement('beforebegin', alertContainer);
-    
-        document.getElementById('confirm-clear-cart').addEventListener('click', () => {
-            cart = [];
-            updateCartUI();
-            alertContainer.remove(); // Quitamos la alerta después de vaciar el carrito
+        Swal.fire({
+            title: "¿Estás seguro de que deseas vaciar tu canasta?",
+            confirmButtonText: "Si",
+            showCancelButton: true,
+            cancelButtonText: "No, continuar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+              cart = [];
+              updateCartUI();
+              Swal.fire({
+                title: 'Productos eliminados!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
         });
     });
-    
-    // Confirmar la compra si el carrito está lleno
+
+    // Comprar productos
     payCarButton.addEventListener('click', () => {
-            const alertContainer = document.createElement('div');
-            alertContainer.classList.add('alert', 'alert-success', 'alert-dismissible', 'fade', 'show');
-            alertContainer.innerHTML = `
-                <strong>¡Compra realizada con éxito!</strong> Tus productos han sido comprados.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            `;
-    
-            basketButtons.insertAdjacentElement('beforebegin', alertContainer);
-    
-            // Vaciamos el carrito después de la compra exitosa
-            cart = [];
-            updateCartUI();
-        }
-    )});
-    
-    // Agregar productos al carrito (redirigir al formulario)
+        Swal.fire({
+            title: 'Productos comprados',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        cart = [];
+        updateCartUI();
+    });
+
     document.getElementById('add-products-button').addEventListener('click', function() {
         window.location.href = '../html/formulario.html';
-    });
+      });
+
+});
 
 function formatCurrency(value) {
     const formatter = new Intl.NumberFormat('es-CO', {

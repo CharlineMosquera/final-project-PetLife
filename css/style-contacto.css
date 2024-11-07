@@ -170,17 +170,17 @@
   margin-right: 100px;
 }
 
-/* Estilos para las alertas y espacio de bootstrap */
+/* Estilos para las alertas de bootstrap */
 .alert {
-  font-size: 15px; 
-  padding: 5px; 
-  border-radius: 5px; 
-  max-width: fit-content;
-  margin-top: 10px; 
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 300px;
+  margin-top: 10px;
 }
 
 /* Para asegurar que las alertas no ocupen más espacio del necesario */
 .alert-danger, .alert-success {
-  font-size: 15px; 
-  padding: 5px; 
+  font-size: 15px;
+  padding: 5px;
 }
