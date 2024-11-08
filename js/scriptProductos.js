@@ -23,17 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayProductsLocalStorage(products) {
         productsContainerLocalStorage.innerHTML = "";
+
         products.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('col-md-4', 'mb-4', 'product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
+                <img src="${product.image}" class="card-img-top" alt="${product.name}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.nombre_producto}</h5>
+                <h5 class="card-title">${product.name}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">${formatCurrency(product.precio)}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.price)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
                 productsContainerLocalStorage.appendChild(productDiv);
         });
     }
