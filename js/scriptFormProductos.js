@@ -14,12 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //Revisar que todos los campos se llenaron
         if (!name || !price || !description || !category || !subcategory || !imageFile) {
-            return alert("Todos los campos son obligatorios");
+            Swal.fire({
+                title: "Todos los campos son obligatorios",
+                icon: "error"
+            })
+            return;
         }
 
         //Revisar que el precio ingresado sea un número
         if (isNaN(price) || parseFloat(price) <= 0) {
-            return alert("El precio debe ser un número válido mayor a 0");
+            Swal.fire({
+                title: "El precio debe ser un número válido mayor a 0",
+                icon: "error"
+            })
+            return;
         }
 
         //Leer la imagen
@@ -51,7 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let products = JSON.parse(localStorage.getItem('products')) || [];
         products.push(product);
         localStorage.setItem('products', JSON.stringify(products));
-        window.location.href = '../html/productos.html';
-        alert("Producto agregado exitosamente");
+
+        // Muestra confirmacion de que se proceso bien
+        Swal.fire({
+            title: '¡Producto agregado correctamente!',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        }).then(() => {
+            window.location.href = '../html/productos.html';
+        })
     }
 });
