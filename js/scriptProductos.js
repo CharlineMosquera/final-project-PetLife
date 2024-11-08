@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Otras funciones (addToCart, updateCartUI, etc.)...
     function addToCart(product) {
-        const existingProduct = cart.find(item => item.name === product.name);
+        const existingProduct = cart.find(item => item.id_producto === product.id_producto);
         if (existingProduct) {
             existingProduct.quantity++;
         } else {
