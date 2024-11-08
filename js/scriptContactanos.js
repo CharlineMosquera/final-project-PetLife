@@ -19,19 +19,19 @@ document
 
     // llamamos las variables y creamos la alerta indicando que si el id name tiene un string vacio crea una alerta donde indica que debe ingresar el nombre//
     if (name === "") {
-      showError(errorName, "Ingrese el nombre")
+      showError(errorName, "Ingresa el nombre")
       return false;
     }
     removeError(errorName, "¡Nombre válido!")
 
     if (lastName === "") {
-      showError(errorLastname, "Ingrese el apellido")
+      showError(errorLastname, "Ingresa el apellido")
       return false;
     }
     removeError(errorLastname, "¡Apellido válido!")
 
     if (phone === "") {
-      showError(errorPhone, "Ingrese el número de teléfono")
+      showError(errorPhone, "Ingresa el número de teléfono")
       return false;
     }
     removeError(errorPhone, "¡Teléfono válido!")
@@ -39,13 +39,13 @@ document
     // creamos un regex donde indica que unicamente acepta caracteres de numero
     let regex = /^[0-9]+$/;
     if (!regex.test(phone)) {
-      showError(errorPhone, 'El número de teléfono es incorrecto. Solo se permiten números.')
+      showError(errorPhone, 'El número de teléfono ingresado no es válido. Asegúrate de usar solo números')
       return false; // Prevenir el envío del formulario si el teléfono no es válido
     }
     removeError(errorPhone, "¡Teléfono válido!")
 
     if (email === "") {
-      showError(errorEmail, "Ingrese el correo")
+      showError(errorEmail, "Ingresa el correo")
       return false;
     }
     removeError(errorEmail, "¡Email válido!")
@@ -60,14 +60,14 @@ document
 
 
     if (message === "") {
-      showError(errorMessage, "Ingrese el mensaje")
+      showError(errorMessage, "Ingresa el mensaje")
       return false;
     }
     removeError(errorMessage, "¡Mensaje válido!")
 
     // aqui realizmos el return true en caso que todas las condiciones se den enviaran el formulario
     Swal.fire({
-      title: 'Mensaje enviado!',
+      title: '¡Mensaje enviado con éxito!',
       icon: 'success',
       showConfirmButton: false,
       timer: 1500
