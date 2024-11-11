@@ -1,3 +1,5 @@
+const baseURL = "http://localhost:8080/api";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const productsContainer = document.getElementById('products-container');
@@ -6,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
     const clearCartButton = document.getElementById('clear-cart');
+    const payCarButton = document.getElementById('pay-cart');
+    const basketButtons = document.getElementById('basket-buttons');
 
     function loadProductsFromLocalStorage() {
         const products = JSON.parse(localStorage.getItem('products')) || [];
@@ -19,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayProductsLocalStorage(products) {
         productsContainerLocalStorage.innerHTML = "";
+
         products.forEach(product => {
             const productDiv = document.createElement('div');
             productDiv.classList.add('col-md-4', 'mb-4', 'product');
@@ -28,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-body text-center">
                 <h5 class="card-title">${product.name}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">$${product.price}</p>
+                <p class="price">${formatCurrency(product.price)}</p>
                 <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
                 productsContainerLocalStorage.appendChild(productDiv);
         });
@@ -43,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Cargar productos desde el archivo productos.json
-    fetch('/js/productos.json') // Asegúrate de que esta ruta sea correcta
+    // Cargar productos desde la base de datos
+    fetch(`${baseURL}/productos`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la red');
@@ -62,12 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productDiv.classList.add('product');
             productDiv.innerHTML = `
                 <div class="card h-100">
-                <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                <img src="${product.imagen}" class="card-img-top" alt="${product.nombre_producto}">
                 <div class="card-body text-center">
-                <h5 class="card-title">${product.name}</h5>
+                <h5 class="card-title">${product.nombre_producto}</h5>
                 <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p class="price">$${product.price}</p>
-                <button class="btn btn-primary add-to-cart" data-id="${product.name}">Agregar al carrito</button> </div> </div>`;
+                <p class="price">${formatCurrency(product.precio)}</p>
+                <button class="btn btn-primary add-to-cart" data-id="${product.nombre_producto}">Agregar al carrito</button> </div> </div>`;
             productsContainer.appendChild(productDiv);
 
             productDiv.querySelector('.add-to-cart').addEventListener('click', () => addToCart(product));
@@ -76,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Otras funciones (addToCart, updateCartUI, etc.)...
     function addToCart(product) {
-        const existingProduct = cart.find(item => item.name === product.name);
+        const existingProduct = cart.find(item => item.id_producto === product.id_producto);
         if (existingProduct) {
             existingProduct.quantity++;
         } else {
@@ -90,13 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
         let total = 0; // Inicializar el total
         cart.forEach(item => {
             const listItem = document.createElement('li');
-            listItem.innerHTML = `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
+            listItem.innerHTML = `
+                <div class="card basket h-100">
+                    <span class="basket-quantity">x${item.quantity}</span>
+                    <img src="${item.imagen}" class="card-img-top" alt="${item.nombre_producto}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">${item.nombre_producto}</h5>
+                        <p class="rating">⭐⭐⭐⭐⭐</p>
+                        <p class="price">${formatCurrency((item.precio * item.quantity).toFixed(2))}</p>
+                    </div> 
+                </div>`;
 
             cartList.appendChild(listItem);
-            total += item.price * item.quantity;
+            total += item.precio * item.quantity;
              // Calcular el total
         });
-        cartTotal.textContent = total.toFixed(2); // Actualizar el total en la interfaz
+        cartTotal.innerHTML =
+            `<label>Total</label> 
+            <p>${formatCurrency(total)}</p>`; // Actualizar el total en la interfaz
+
+        if (cart.length > 0) {
+            basketButtons.style.visibility = 'visible';
+        } else {
+            basketButtons.style.visibility = 'hidden';
+        }
     }
 
 
@@ -107,6 +129,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Limpiar el carrito
     clearCartButton.addEventListener('click', () => {
+        Swal.fire({
+            title: "¿Estás seguro de que deseas vaciar tu canasta?",
+            confirmButtonText: "Si",
+            showCancelButton: true,
+            cancelButtonText: "No, continuar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+              cart = [];
+              updateCartUI();
+              Swal.fire({
+                title: 'Productos eliminados!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            }
+        });
+    });
+
+    // Comprar productos
+    payCarButton.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Productos comprados',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
         cart = [];
         updateCartUI();
     });
@@ -117,3 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+function formatCurrency(value) {
+    const formatter = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    });
+    return formatter.format(value);
+}

@@ -49,7 +49,7 @@
         "name": "Dog's Natural Care - Jabón Origen Spa Herbal",
         "img": "../img/productos/Jabon-NaturalCare.jpg",
         "description": "Ideal para minimizar impurezas y usar en pieles expuestas a cambios de ambiente, para mascotas aventureras que se exponen a microorganismos y ectoparásitos. Sus aceites ayudan a dar vitalidad y brillo al pelaje.",
-        "price": 18.700,
+        "price": 18700,
         "category": "Higiene",
         "subcategory": "Jabón"
     },
@@ -58,7 +58,7 @@
         "name": "Petys - Paños Húmedos Anti Bacterial Con Clorhexidina",
         "img": "../img/productos/Panos.jpg",
         "description": "Paños húmedos petys anti bacterial con clorhexidina - 40 unidades, Hipo alergénicos. dejan una agradable fragancia en la mascota, los deja listos para disfrutar de su día, limpiándolos para eliminar la suciedad y el mal olor que pueden adquirir entre baño y baño, ideal para ser manipulado por humanos.",
-        "price": 11.000,
+        "price": 11000,
         "category": "Higiene",
         "subcategory": "Paños húmedos"
     },
@@ -67,7 +67,7 @@
         "name": "Omega 3 para Perros",
         "img": "../img/productos/omega3.png",
         "description": "Suplemento rico en ácidos grasos esenciales para mejorar la salud de la piel y el pelaje.",
-        "price": 19.990,
+        "price": 19990,
         "category": "Suplementos",
         "subcategory": "Piel y Pelaje"
     },
@@ -76,7 +76,7 @@
         "name": "Multivitamínico Completo",
         "img": "../img/productos/multivitaminico.webp",
         "description": "Un suplemento diario con vitaminas y minerales esenciales para mantener a tu perro activo y saludable.",
-        "price": 24.990,
+        "price": 24990,
         "category": "Suplementos",
         "subcategory": "Bienestar General"
     },
@@ -85,7 +85,7 @@
         "name": "Glucosamina para Articulaciones",
         "img": "../img/productos/glucosamina.png",
         "description": "Suplemento que ayuda a mejorar la movilidad y a fortalecer las articulaciones de perros mayores o activos.",
-        "price": 29.990,
+        "price": 29990,
         "category": "Salud",
         "subcategory": "Articulaciones"
     },

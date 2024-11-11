@@ -138,8 +138,8 @@ lo que genera el efecto de voltear*/
 }
 
 .card-back {
-  background-color: #a09d98; /* Color fondo */
-  color: rgb(0, 0, 0); /*Color Letra*/
+  background-color: #eab748; /* Color fondo */
+  color: white; /*Color Letra*/
   transform: rotateY(180deg);
   display: flex;
   justify-content: center;
@@ -166,7 +166,7 @@ lo que genera el efecto de voltear*/
 }
 
 .dev-name {
-  color: white;
+  color: black;
   font-weight: bold;
   letter-spacing: 2px; /* Espaciado de las letras */
 }

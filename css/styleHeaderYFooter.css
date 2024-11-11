@@ -54,9 +54,7 @@ body {
 }
 
 .iconos8 {
-  display: flex;
-  width: 100px;
-  gap: 20px;
+  position: relative;
 }
 
 .iconos8 span {
@@ -246,6 +244,10 @@ footer .wave#wave4 {
   opacity: 0.7;
   bottom: 20px;
   animation: animateWave_02 3s linear infinite;
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
 }
 
 /* Media queries para pantallas más pequeñas */

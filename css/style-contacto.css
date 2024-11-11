@@ -33,9 +33,9 @@
 .contacto {
   width: 90%;
   max-width: 900px;
-  margin: 15px auto; /* Centra el formulario horizontalmente */
-  padding: 15px;
-  background-color: #a09d98;
+  margin: 30px auto; /* Centra el formulario horizontalmente */
+  padding: 30px;
+  background-color: #e9d9bd;
   border-radius: 50px;
 }
 
@@ -75,7 +75,7 @@
 @media (min-width: 768px) {
   .contacto {
     width: 90%;
-    padding: 15px;
+    padding: 30px;
     margin-bottom: 30vh;
     margin-bottom: 50vh;
   }
@@ -100,7 +100,8 @@
 
 /*  aspecto de los label de los input */
 .contacto label {
-  margin-bottom: 3px;
+  margin-top: 16px;
+  margin-bottom: 2px;
   font-family: "Nunito";
   font-weight: 700;
   font-size: 16px;
@@ -151,6 +152,8 @@
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
+  margin: 40px auto 20px;
+  width: 300px;
   transition: background-color 0.3s ease;
 }
 /* color al boton cuando pase el mouse */
@@ -165,4 +168,19 @@
   margin-top: 2px;
   margin-left: 100px;
   margin-right: 100px;
+}
+
+/* Estilos para las alertas de bootstrap */
+.alert {
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+/* Para asegurar que las alertas no ocupen más espacio del necesario */
+.alert-danger, .alert-success {
+  font-size: 15px;
+  padding: 5px;
 }
